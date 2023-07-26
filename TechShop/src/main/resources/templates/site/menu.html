@@ -1,0 +1,180 @@
+<header class="header padding-top-15 margin-bottom-15">
+	<div class="container">
+		<div class="row">
+			<span class="menu_bar align-center d-block d-lg-none" title="Menu">
+				<img src="/site/images/bars.png" width="32" height="32" alt="OH! Điện máy">
+			</span>
+			<a href="https://oh-dien-may.mysapo.net/" class="logo ">
+				<img src="/site/images/logo-site2.png" width="170" height="52" alt="OH! Điện máy">
+			</a>
+			<a class="head-order head-map border-radius-4" href="https://oh-dien-may.mysapo.net/he-thong-cua-hang"
+				title="Hệ thống cửa hàng">Hệ thống cửa hàng<br><b>40 cửa hàng</b></a>
+			<form action="" class="input-group search-form" role="search">
+				<input type="text" aria-label="Tìm sản phẩm" name="query" value="" autocomplete="off"
+					class="search-auto search-auto margin-0 position-relative border-radius-4" required=""
+					placeholder="Lọc nước" oninput="search(this.value)">
+				<button class="position-absolute padding-0" aria-label="search"></button>
+				<div id="results-container">
+
+				</div>
+			</form>
+
+
+
+
+			<a class="text-ico hotline border-radius-4 margin-left-40" href="tel:0374776605" title="Hotline"><img
+					src="/site/images/phone.svg" alt="Hotline">Hotline<span class="d-block">0374776605</span></a>
+			<div class="account position-relative">
+				<a href="/profile" class="text-ico account-head d-block"
+					title="Tài khoản">
+					<img src="/site/images/user.svg" alt="Tài khoản">
+					Tài khoản
+					<span class="d-block" th:if="${session.loggedUser !=null }">
+						Hello, [[${session.loggedUser.fullname}]]
+					</span>
+					<span class="d-block" th:if="${session.loggedUser == null}">
+						Hello, Khách
+					</span>
+					
+
+				</a>
+				<ul class="position-absolute">
+					<li><a href="/login" title="Đăng nhập" th:if="${session.loggedUser ==null }">Đăng nhập</a></li>
+					<li><a href="/logout" title="Đăng nhập" th:if="${session.loggedUser !=null }">Đăng xuất</a></li>
+					<li><a href="/danh-sach-yeu-thich" class="wishlist_header" title="Sản phẩm yêu thích">Yêu thích </a>
+					</li>
+					
+				</ul>
+			</div>
+			<a class="text-ico hotline border-radius-4 margin-left-40" href="/san-pham-yeu-thich" title="Hotline"><img
+					src="/site/images/heart-icon.png" alt="Hotline">Yêu thích<span class="d-block">Xem chi
+					tiết</span></a>
+			<a class="text-ico cart-head position-relative" href="/gio-hang" title="Giỏ hàng">
+				<img src="/site/images/cart.svg" alt="giỏ hàng">
+				Giỏ hàng
+				<span class="d-block">Thanh toán</span>
+				<!-- <span class="d-block count_item_pr position-absolute border-radius-20 text-center">1</span> -->
+			</a>
+		</div>
+		<div class="position-relative">
+			<nav class="menu-main margin-top-5">
+				<div class="d-block d-lg-none menu-title bold">Menu<i class="fa fa-times"></i></div>
+				<ul class="item_big d-lg-flex justify-content-center align-center">
+
+					<li class="nav-item has-child" th:each="item : ${listMenu}">
+					
+						<a class="a-img caret-down" th:href="@{${item.url}}"
+							style="transform: translateY(0%);">	<img th:src="@{'/phonestore/images/'+${item.image}}" alt="" height="25px" width="25px"> [[${item.name}]]<i
+								class="fa fa-angle-down" th:if="${item.subMenus.size > 0}"></i></a>
+
+						<i class="fa fa-angle-down"></i>
+
+						<ul class="item_small">
+							<li th:each="submenu : ${item.subMenus}"><a th:href="@{${submenu.url}}" th:text="${submenu.name}"></a></li>
+
+
+						</ul>
+					</li>
+
+
+
+
+
+
+				</ul>
+				<div class="menu-ex-mb d-block d-lg-none">
+					<div class="title">THÔNG TIN TÀI KHOẢN</div>
+					<ul class="item_big">
+
+
+						<li><a href="https://oh-dien-may.mysapo.net/he-thong-cua-hang">Hệ thống cửa hàng</a></li>
+						<li><a href="https://oh-dien-may.mysapo.net/account/login" title="Đăng nhập">Đăng nhập</a>
+						</li>
+						<li><a href="https://oh-dien-may.mysapo.net/account/register" title="Đăng ký">Đăng ký</a>
+						</li>
+					</ul>
+				</div>
+				<div class="navigation-arrows">
+					<i class="fas fa-chevron-left prev disabled"></i>
+					<i class="fas fa-chevron-right next disabled"></i>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<script>
+		function search(keyword) {
+			axios.get('/dtdd/search?query=' + keyword)
+				.then(res => {
+
+
+					var productHTML = '';
+
+					for (var i = 0; i < res.data.length; i++) {
+						var product = res.data[i];
+
+						// Tạo đoạn mã HTML cho mỗi sản phẩm
+						productHTML += `
+								<a class="clearfix" href="${'/vandustore/' + product.categoryCode + '/' + product.productCode}">
+								<div class="img">
+									<img src="${'/phonestore/images/' + product.image}">
+								</div>
+								<div class="d-title">${product.name}</div>
+								<div class="d-title d-price">${product.discountedPrice.toLocaleString()}đ</div>
+								</a>
+							`;
+
+
+					}
+
+					if (res.data.length == 0) {
+						productHTML = `<div class="note">Không có kết quả tìm kiếm</div>`
+					} else {
+						productHTML += `<div class="text-center">
+							<a href="/tim-kiem?query=${keyword}"
+								class="note text center" title="Xem tất cả">Xem tất cả</a>
+							</div>`
+					}
+
+					var searchResult = document.createElement('div');
+					searchResult.className = 'results-box';
+					searchResult.innerHTML = productHTML
+
+
+					var result = $('#results-container');
+
+					result.empty()
+
+					if (keyword.length > 2) {
+						result.html(searchResult);
+					}
+					else {
+						result.empty()
+					}
+
+
+
+				})
+		}
+		var searchInput = document.querySelector('.search-auto');
+		var resultsContainer = document.getElementById('results-container');
+
+		searchInput.addEventListener('blur', function () {
+			// Ẩn kết quả tìm kiếm
+			setTimeout(function () {
+				resultsContainer.style.display = 'none';
+			}, 200);
+		});
+
+		searchInput.addEventListener('focus', function () {
+			// Hiển thị kết quả tìm kiếm
+			resultsContainer.style.display = 'block';
+		});
+
+		resultsContainer.addEventListener('click', function (event) {
+			event.stopPropagation(); // Ngăn chặn lan truyền của sự kiện click
+		});
+
+	</script>
+	<!-- <script src="/site/js/main.js"></script> -->
+</header>

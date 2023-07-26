@@ -1,0 +1,77 @@
+.sapo-product-reviews-module .bpr-products-module-heading .bpr-products-module-title {
+  display: inline-block;
+  position: relative;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+  padding-bottom: 15px;
+  line-height: 1.2; }
+
+.sapo-product-reviews-module .bpr-product-img img {
+  width: 100%; }
+
+.sapo-product-reviews-module .bpr-product-content {
+  margin: 20px 0px 15px; }
+  .sapo-product-reviews-module .bpr-product-content .bpr-product-name {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 0 5px;
+    line-height: 24px; }
+  .sapo-product-reviews-module .bpr-product-content .bpr-product-star {
+    display: flex;
+    align-items: center;
+    line-height: 1; }
+    .sapo-product-reviews-module .bpr-product-content .bpr-product-star i {
+      font-size: 18px;
+      font-style: normal; }
+    .sapo-product-reviews-module .bpr-product-content .bpr-product-star.bpr-product-reviews-heart i.star-on-png:before {
+      content: "\f004";
+      font-family: 'FontAwesome'; }
+    .sapo-product-reviews-module .bpr-product-content .bpr-product-star.bpr-product-reviews-heart i.star-off-png:before {
+      content: "\f08a";
+      font-family: 'FontAwesome'; }
+    .sapo-product-reviews-module .bpr-product-content .bpr-product-star.bpr-product-reviews-heart i.star-half-png {
+      position: relative; }
+      .sapo-product-reviews-module .bpr-product-content .bpr-product-star.bpr-product-reviews-heart i.star-half-png:before {
+        content: "\f08a";
+        font-family: 'FontAwesome'; }
+      .sapo-product-reviews-module .bpr-product-content .bpr-product-star.bpr-product-reviews-heart i.star-half-png:after {
+        font-family: 'FontAwesome';
+        content: "\f004";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 50%;
+        overflow: hidden;
+        line-height: 1; }
+  .sapo-product-reviews-module .bpr-product-content .bpr-product-price .price {
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    color: #363636;
+    font-weight: 700;
+    margin-right: 10px; }
+    .sapo-product-reviews-module .bpr-product-content .bpr-product-price .price.bpr-product-oldprice {
+      font-size: 13px;
+      color: #acacac;
+      font-family: 'Arial', sans-serif;
+      line-height: 24px;
+      font-weight: 300;
+      text-decoration: line-through; }
+
+.sapo-product-reviews-module .bpr-button-prev, .sapo-product-reviews-module .bpr-button-next {
+  font-size: 42px;
+  background: transparent;
+  color: #333;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-140%);
+  z-index: 999; }
+  .sapo-product-reviews-module .bpr-button-prev:not(.swiper-button-disabled), .sapo-product-reviews-module .bpr-button-next:not(.swiper-button-disabled) {
+    cursor: pointer; }
+
+.sapo-product-reviews-module .bpr-button-next {
+  right: 0;
+  left: auto; }

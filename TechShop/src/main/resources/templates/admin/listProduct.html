@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://freshcart.codescandy.com/dashboard/products.html -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Required meta tags -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta content="Codescandy" name="author">
+  <title>Products Dashboard - FreshCart </title>
+  <!-- Favicon icon-->
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://freshcart.codescandy.com/assets/images/favicon/favicon.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Libs CSS -->
+  <!-- <link href="/admin/css/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="/admin/css/feather-icons.css" rel="stylesheet"> -->
+  <link href="/admin/css/simplebar.min.css" rel="stylesheet">
+  <link href="/site/css/notify.scss.css" rel="stylesheet" type="text/css" media="all">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="/admin/css/theme.min.css">
+  <link rel="stylesheet" href="/admin/css/modal.css">
+  <!-- Google tag (gtag.js) -->
+
+
+  <script async="" src="/admin/js/app.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M8S4MT3EYG');
+  </script>
+
+
+</head>
+
+<body>
+  <!-- main wrapper-->
+
+  <nav class="navbar navbar-expand-lg navbar-glass">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <div class="d-flex align-items-center">
+
+          <a class="text-inherit d-block d-xl-none me-4" data-bs-toggle="offcanvas"
+            href="https://freshcart.codescandy.com/dashboard/products.html#offcanvasExample" role="button"
+            aria-controls="offcanvasExample">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+              class="bi bi-text-indent-right" viewBox="0 0 16 16">
+              <path
+                d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm10.646 2.146a.5.5 0 0 1 .708.708L11.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zM2 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z">
+              </path>
+            </svg>
+          </a>
+
+          <form role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+
+          </form>
+        </div>
+        <div>
+          <ul class="list-unstyled d-flex align-items-center mb-0 ms-5 ms-lg-0">
+
+            <li class="dropdown-center ">
+              <a class="position-relative btn-icon btn-ghost-secondary btn rounded-circle"
+                href="https://freshcart.codescandy.com/dashboard/products.html#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="bi bi-bell fs-5"></i>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 ms-n2">
+                  2
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg p-0 border-0 ">
+                <div class="border-bottom p-5 d-flex
+              justify-content-between align-items-center">
+                  <div>
+                    <h5 class="mb-1">Notifications</h5>
+                    <p class="mb-0 small">You have 2 unread messages</p>
+                  </div>
+                  <a href="https://freshcart.codescandy.com/dashboard/products.html#!" class="text-muted">
+                  </a><a href="https://freshcart.codescandy.com/dashboard/products.html#"
+                    class="btn btn-ghost-secondary btn-icon rounded-circle" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" data-bs-title="Mark all as read">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                      class="bi bi-check2-all text-success" viewBox="0 0 16 16">
+                      <path
+                        d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z">
+                      </path>
+                      <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z"></path>
+                    </svg>
+                  </a>
+
+                </div>
+                <div data-simplebar="init" style="height: 250px;">
+                  <div class="simplebar-wrapper" style="margin: 0px;">
+                    <div class="simplebar-height-auto-observer-wrapper">
+                      <div class="simplebar-height-auto-observer"></div>
+                    </div>
+                    <div class="simplebar-mask">
+                      <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                        <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                          aria-label="scrollable content" style="height: auto; overflow: hidden;">
+                          <div class="simplebar-content" style="padding: 0px;">
+                            <!-- List group -->
+                            <ul class="list-group list-group-flush notification-list-scroll fs-6">
+                              <!-- List group item -->
+                              <li class="list-group-item px-5 py-4 list-group-item-action active">
+                                <a href="https://freshcart.codescandy.com/dashboard/products.html#!" class="text-muted">
+                                  <div class="d-flex">
+                                    <img src="/admin/images/avatar-1.jpg" alt=""
+                                      class="avatar avatar-md rounded-circle ">
+                                    <div class="ms-4">
+                                      <p class="mb-1">
+                                        <span class="text-dark">Your order is placed</span> waiting for shipping
+                                      </p>
+                                      <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                          fill="currentColor" class="bi bi-clock text-muted" viewBox="0 0 16 16">
+                                          <path
+                                            d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                          </path>
+                                          <path
+                                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                          </path>
+                                        </svg><small class="ms-2">1 minute ago</small></span>
+                                    </div>
+                                  </div>
+                                </a>
+
+
+
+                              </li>
+                              <li class="list-group-item  px-5 py-4 list-group-item-action">
+                                <a href="https://freshcart.codescandy.com/dashboard/products.html#!" class="text-muted">
+                                  <div class="d-flex">
+                                    <img src="/admin/images/avatar-5.jpg" alt=""
+                                      class="avatar avatar-md rounded-circle ">
+                                    <div class="ms-4">
+                                      <p class="mb-1">
+                                        <span class="text-dark">Jitu Chauhan </span> answered to your pending order list
+                                        with notes
+                                      </p>
+                                      <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                          fill="currentColor" class="bi bi-clock text-muted" viewBox="0 0 16 16">
+                                          <path
+                                            d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                          </path>
+                                          <path
+                                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                          </path>
+                                        </svg><small class="ms-2">2 days ago</small></span>
+                                    </div>
+                                  </div>
+                                </a>
+
+
+
+                              </li>
+                              <li class="list-group-item px-5 py-4 list-group-item-action">
+                                <a href="https://freshcart.codescandy.com/dashboard/products.html#!" class="text-muted">
+                                  <div class="d-flex">
+                                    <img src="/admin/images/avatar-2.jpg" alt=""
+                                      class="avatar avatar-md rounded-circle ">
+                                    <div class="ms-4">
+                                      <p class="mb-1">
+                                        <span class="text-dark">You have new messages</span> 2 unread messages
+                                      </p>
+                                      <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                          fill="currentColor" class="bi bi-clock text-muted" viewBox="0 0 16 16">
+                                          <path
+                                            d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                          </path>
+                                          <path
+                                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                          </path>
+                                        </svg><small class="ms-2">3 days ago</small></span>
+                                    </div>
+                                  </div>
+                                </a>
+
+
+
+                              </li>
+
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div>
+                  </div>
+                  <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                    <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                  </div>
+                  <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                    <div class="simplebar-scrollbar" style="height: 0px; display: none;"></div>
+                  </div>
+                </div>
+                <div class="border-top px-5 py-4 text-center">
+                  <a href="https://freshcart.codescandy.com/dashboard/products.html#!" class=" ">
+                    View All
+                  </a>
+                </div>
+              </div>
+
+            </li>
+            <li class="dropdown ms-4">
+              <a href="https://freshcart.codescandy.com/dashboard/products.html#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="/admin/images/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle">
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-end p-0">
+
+
+
+                <div class="lh-1 px-5 py-4 border-bottom">
+                  <h5 class="mb-1 h6">FreshCart Admin</h5>
+                  <small>admindemo@email.com</small>
+                </div>
+
+
+
+                <ul class="list-unstyled px-2 py-3">
+
+                  <li>
+                    <a class="dropdown-item" href="https://freshcart.codescandy.com/dashboard/products.html#!">
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="https://freshcart.codescandy.com/dashboard/products.html#!">
+                      Profile
+                    </a>
+
+
+                  </li>
+
+
+                  <li>
+                    <a class="dropdown-item" href="https://freshcart.codescandy.com/dashboard/products.html#!">
+
+                      Settings
+                    </a>
+                  </li>
+
+                </ul>
+                <div class="border-top px-5 py-3">
+
+                  <a href="https://freshcart.codescandy.com/dashboard/products.html#">Log Out</a>
+                </div>
+
+
+
+              </div>
+
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </nav>
+  <div class="main-wrapper" id="myapp">
+    <!-- navbar vertical -->
+
+    <th:block  th:insert="~{/admin/menu}"></th:block>
+
+    <!-- main -->
+    <main class="main-content-wrapper">
+      <div class="container">
+        <div class="row mb-8">
+          <div class="col-md-12">
+            <!-- page header -->
+            <div class="d-md-flex justify-content-between align-items-center">
+              <div>
+                <h2>Products</h2>
+                <!-- breacrumb -->
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="https://freshcart.codescandy.com/dashboard/products.html#"
+                        class="text-inherit">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Products</li>
+                  </ol>
+                </nav>
+              </div>
+              <!-- button -->
+              <div>
+                <a href="/admin/product/saveOrUpdate" class="btn btn-primary">Thêm sản phẩm</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- row -->
+        <div class="row ">
+          <div class="col-xl-12 col-12 mb-5">
+            <!-- card -->
+            <div class="card h-100 card-lg">
+              <div class="px-6 py-6 ">
+                <div class="row justify-content-between">
+                  <!-- form -->
+                  <div class="col-lg-4 col-md-6 col-12 mb-2 mb-lg-0 ">
+                    <form class="d-flex" role="search">
+                      <input class="form-control" type="search" placeholder="Search Products" aria-label="Search"
+                        v-model="keyword" @input="goToPage(1)">
+                    </form>
+                  </div>
+                  <!-- select option -->
+                  <div class="col-lg-2 col-md-4 col-12 offset-4">
+
+                    <select class="form-select" v-model="pageSize" @change="goToPage(1)">
+                      <option :value="size" v-for="size in sizes">
+                        {{size}}</option>
+                    </select>
+                  </div>
+                  <div class="col-lg-2 col-md-4 col-12">
+                    <select class="form-select" v-model="categoryId" @change="goToPage(1)">
+                      <option value="0">Tất cả</option>
+                      <option :value="category.id" v-for="category in listCategory">
+                        {{category.name}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- card body -->
+              <div class="card-body p-0">
+                <!-- table -->
+                <div class="table-responsive">
+                  <table class="table table-centered table-hover text-nowrap table-borderless mb-0 table-with-checkbox">
+                    <thead class="bg-light">
+                      <tr>
+                      
+                        <th>Ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Giá đã giảm</th>
+                        <th>Doanh mục</th>
+                        <th>Trạng thái</th>
+                        <!-- <th>Create at</th> -->
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <template v-for="item in list">
+                        <tr>
+
+                          
+                          <td>
+                            <a> <img :src="'/phonestore/images/' +item.image" alt="" height="50px"></a>
+                          </td>
+                          <td class="text2line">{{item.name}}</td>
+                          <td>{{item.price |customCurrency}}</td>
+                          <td>{{item.discountedPrice |customCurrency}}</td>
+                          <td>{{item.categoryName}}</td>
+                          <td>
+                            <span class="badge bg-light-primary text-dark-primary" v-if="item.available">Đang kinh
+                              doanh</span>
+                            <span class="badge bg-light-danger text-danger" v-if="!item.available">Ngừng kinh
+                              doanh</span>
+                          </td>
+
+                          <!-- <td>24 Nov 2022</td> -->
+                          <td>
+                            <div class="dropdown">
+                              <a href="https://freshcart.codescandy.com/dashboard/products.html#" class="text-reset"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"></i>
+                              </a>
+
+                              <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href=""><i class="bi bi-trash me-3"></i>Xóa</a></li>
+                                <li><a class="dropdown-item" :href="'/admin/product/edit/'+item.productId"><i
+                                      class="bi bi-pencil-square me-3 "></i>Sửa</a>
+                                </li>
+                                <li><a class="dropdown-item" :href="'#details_'+item.productId" data-toggle="collapse"
+                                    role="button" aria-expanded="false"><i class="bi bi-exclamation-circle me-3"></i>
+                                    Chi tiết</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr class="collapse" :id="'details_'+item.productId">
+                          <td colspan="8">
+
+                            <div class="d-flex">
+                              <div class="col-lg-3 p-5 rounded shawdow-lg text-white "
+                                style="background-color: #bd110f;">
+                                <div class="">
+                                  <b>Ngày tạo: {{item.createDate | formatDate('DD/MM/YYYY')}}</b> <br>
+                                  <b>Ngày cập nhật: {{item.updateDate | formatDate('DD/MM/YYYY')}}</b>
+                                </div>
+                              </div>
+
+                              <div class="m-5">
+                                <b class="">Các mã giảm giá : {{item.discounts.length}} / 2
+                                </b> <br>
+                                <div v-for="discount in item.discounts"
+                                  class="badge bg-light-primary p-2 rounded m-3 text-dark-primary">
+                                  <span class="m-0">{{discount.name + ' - '+ discount.discountCode +' - '+ 'Giảm : ' }}
+                                    {{discount.discountAmount| customCurrency}}
+                                    <span style="color: rgb(122, 5, 5);" v-if="!discount.voucherValid">Đã hết hạn</span>
+                                    <span @click="deleteDiscount(item.productId,discount.id)"><i
+                                        class="bi bi-x"></i></span>
+
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 mb-3 mt-3">
+                              <button class="btn btn-outline-warning p-1" :data-target="'#discountModal'+item.productId"
+                                data-toggle="modal" v-if="item.discounts.length<2">Thêm giảm giá</button>
+
+                              <button class="btn btn-outline-primary p-1" v-if="!item.available"
+                                @click="sell(item.productId)">Kinh doanh</button>
+                              <button class="btn btn-outline-danger p-1" v-if="item.available"
+                                @click="sell(item.productId)">Ngừng kinh doanh</button>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" :id="'discountModal'+item.productId" tabindex="-1"
+                              aria-labelledby="discountModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="discountModalLabel">Thêm mã giảm giá</h5>
+
+                                  </div>
+                                  <div class="modal-body">
+                                    <form action="">
+                                      <div class="form-group ">
+                                        <label for="">Chọn mã giảm giá</label>
+                                        <select class="form-select single-select" id="inputGroupSelect03"
+                                          aria-label="Example select with button addon"
+                                          v-model="productDiscount.discountId">
+                                          <option v-for="discount in listDiscount" :value="discount.id">{{
+                                            discount.discountCode +' - '+ discount.name }}</option>
+                                        </select>
+                                      </div>
+                                    </form>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                    <button type="button" class="btn btn-primary"
+                                      @click="saveOrUpdateDiscount(item.productId)">Lưu</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- end modal -->
+
+                            <h5>Danh sách các phiên bản</h5>
+                            <!-- <div class="row"> -->
+                            <div class="col-lg-12" v-for="version in item.versions">
+                              <b>Tên phiên bản {{version.versionName}}</b>
+                              <table class="table table-centered">
+                                <thead>
+                                  <tr>
+                                    <th>Ảnh</th>
+                                    <th>Giá nhập</th>
+                                    <th>Giá bán</th>
+                                    <th>Giá đã giảm</th>
+                                    <th>Số lượng</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr v-for="productDetails in version.productDetails">
+                                    <td><img :src="'/phonestore/images/'+productDetails.image" alt="" height="30px">
+                                    </td>
+                                    <td>{{productDetails.importPrice |customCurrency}}</td>
+                                    <td>{{productDetails.price |customCurrency}}</td>
+                                    <td>{{productDetails.discountedPrice |customCurrency}}</td>
+                                    <td>{{productDetails.quantity}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+
+                            <!-- <div class="col-lg-3 d-flex justify-content-end mr-1">
+                                <div class="">
+                                  <button class="btn btn-outline-primary p-1">Thêm mã giảm giá</button> <br>
+                                  <button class="btn btn-outline-primary p-1 mt-1">Thêm mã giảm giá</button>
+                                </div>
+                              </div> -->
+                            <!-- </div> -->
+                          </td>
+                        </tr>
+
+
+                      </template>
+
+
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+              <div class=" border-top d-md-flex justify-content-between align-items-center px-6 py-6">
+                <span>Đang hiện thị to 8 of 12 entries</span>
+                <nav class="mt-2 mt-md-0">
+                  <ul class="pagination mb-0 ">
+                    <li class="page-item"><a class="page-link " @click="prev()">Trước</a></li>
+                    <li class="page-item" v-for="pageNumber in getPaginationArray()"
+                      :class="{ 'active': pageNumber == currentPage }">
+                      <a class="page-link" @click="goToPage(pageNumber)">{{ pageNumber }}</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" @click="next()">Tiếp</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+
+  <!-- Libs JS -->
+  <script src="/site/js/notify.js" async=""></script>
+  <script src="/admin/js/jquery.min.js"></script>
+  <script src="/admin/js/bootstrap.bundle.min.js"></script>
+  <script src="/admin/js/simplebar.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+    crossorigin="anonymous"></script>
+  <!-- Theme JS -->
+  <script src="/admin/js/theme.min.js"></script>
+  <script src="/site/js/alert.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
+    integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"
+    integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+
+    var app = new Vue({
+      el: '#myapp',
+      data: {
+        list: [],
+        listDiscount: [],
+        productDiscount: {},
+        currentPage: null,
+        pageSize: 5,
+        keyword: '',
+        sizes: [5, 10, 15, 20, 25, 30],
+        selectedSize: null,
+        totalPages: null,
+        totalElements: null,
+        listCategory: [],
+        categoryId: 0
+      },
+      filters: {
+        customCurrency: function (input, symbol) {
+          if (!input) return '';
+
+          var sign = (symbol !== undefined) ? symbol : 'đ';
+
+          input = input.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,");
+
+          return input + ' ' + sign;
+        },
+        formatDate: function (value, format) {
+          if (!value) return 'Chưa có';
+
+          // Sử dụng Moment.js để định dạng ngày
+          return moment(value).format(format);
+        }
+      },
+      methods: {
+        goToPage: function (pageNumber) {
+          var self = this;
+          self.currentPage = pageNumber;
+
+          axios.get('/admin/product/getAll?page=' + self.currentPage + '&size=' + self.pageSize + '&keyword=' + self.keyword + '&category=' + self.categoryId)
+            .then(function (response) {
+              self.list = response.data.content;
+              self.totalPages = response.data.totalPages;
+              self.totalElements = response.data.totalElements;
+
+
+              var params = new URLSearchParams(window.location.search);
+              params.set('page', self.currentPage);
+              params.set('size', self.pageSize);
+              params.set('keyword', self.keyword);
+              params.set('category', self.categoryId);
+              window.history.pushState({}, '', '?' + params.toString());
+            });
+        },
+        setSize: function (size) {
+          var self = this;
+          self.pageSize = size;
+          self.currentPage = 1;
+          self.goToPage(self.currentPage);
+        },
+        next: function () {
+          var self = this;
+          if (self.currentPage < self.totalPages) {
+            self.currentPage++;
+            self.goToPage(self.currentPage);
+          }
+        },
+        prev: function () {
+          var self = this;
+          if (self.currentPage > 1) {
+            self.currentPage--;
+            self.goToPage(self.currentPage);
+          }
+        },
+        getPaginationArray: function () {
+          var self = this;
+          var arr = [];
+          for (var i = 1; i <= self.totalPages; i++) {
+            arr.push(i);
+          }
+          return arr;
+        },
+        deleteProduct: function (id) {
+          var self = this;
+          Swal.fire({
+            title: 'Xác nhận?',
+            text: "Bạn có chắc muốn xóa sản phẩm này không!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'OK'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              axios.delete('/admin/product/delete/' + id)
+                .then(function (response) {
+                  if (self.currentPage == self.totalPages && self.list.length == 1) {
+                    self.totalPages = 1
+                  }
+                  // Kiểm tra nếu page hiện tại lớn hơn tổng số page thì trang chuyển đến page cuối cùng
+                  if (self.currentPage > self.totalPages) {
+                    self.goToPage(self.totalPages)
+                  } else {
+                    // Nếu page hiện tại nhỏ hơn hoặc bằng tổng số page thì trang chuyển đến page hiện tại
+                    self.goToPage(self.currentPage)
+                  }
+
+                  MyNotification.alertSucess("Thông báo", "Xóa sản phẩm thành công!")
+                })
+                .catch(function (error) {
+                  MyNotification.alertError("Thông báo", "Xóa sản phẩm không thành công!")
+                });
+            }
+          })
+        },
+        deleteDiscount(pid, did) {
+          var self = this
+          axios.delete('/admin/product-discount/deleteByProductAndDiscount/' + pid + '/' + did)
+            .then(res => {
+              MyNotification.alertSucess("Thông báo", "Xóa giảm giá thành công!")
+              self.goToPage(self.currentPage);
+            })
+            .catch(error => {
+              MyNotification.alertError("Thông báo", "Đã xảy ra lỗi vui lòng kiểm tra lại!")
+              self.goToPage(self.currentPage);
+            })
+        },
+        sell(id) {
+          var self = this
+          axios.get('/admin/product/sell/' + id)
+            .then(function (response) {
+              self.goToPage(self.currentPage);
+            })
+            .catch(function (error) {
+              MyNotification.alertError("Thông báo", "Đã xảy ra lỗi vui lòng kiểm tra lại!")
+              self.goToPage(self.currentPage);
+            })
+        },
+        loadDiscount() {
+          var self = this
+          axios.get('/admin/discount/getValidDiscounts')
+            .then(res => {
+              self.listDiscount = res.data
+            })
+            .catch(error => {
+
+            })
+
+        },
+        saveOrUpdateDiscount(id) {
+          var self = this
+          self.productDiscount.productId = id
+
+          axios.post('/admin/product-discount/saveOrUpdate', self.productDiscount)
+            .then(res => {
+
+              MyNotification.alertSucess("Thông báo", "Thêm giảm giá thành công!")
+
+              self.goToPage(self.currentPage)
+            })
+            .catch(error => {
+              if (error.response.status === 409) {
+                MyNotification.alertError("Thông báo",error.response.data.message)
+              } else {
+                MyNotification.alertError("Thông báo", "Đã xảy ra lỗi vui lòng kiểm tra lại!")
+              }
+             
+            })
+        },
+        getAllCategory() {
+          var self = this;
+
+          axios.get('/admin/category/getAll')
+            .then(res => {
+              self.listCategory = res.data
+
+            }).catch(err => {
+
+            })
+        }
+
+      },
+      created: function () {
+
+        var self = this;
+        var urlParams = new URLSearchParams(window.location.href.split('?')[1]);
+
+        self.currentPage = urlParams.get('page') || 1;
+        self.pageSize = urlParams.get('size') || 5;
+        self.keyword = urlParams.get('keyword') || '';
+        self.categoryId = urlParams.get('category') || 0;
+        self.selectedSize = parseInt(self.pageSize);
+
+        self.loadDiscount()
+        self.getAllCategory()
+        self.goToPage(self.currentPage);
+      }
+    });
+
+  </script>
+  <!-- End custom js for this page-->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.1/jquery.toast.min.js"
+    integrity="sha512-zv5L1hY+PMayrX2l0ojsUqem6AHpdSIVyDJBlDQH/fMLpH1JgaxPTjpum1b1AlLHdARVonrpomps+GgR0oN3MA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.1/jquery.toast.js"
+    integrity="sha512-CwEY0URPo9ZtMMCpiW/mUx4iW2AseRWTbCEJZNoVr18gbFVIGmwztqu50C0LWwUYpA7PRgBXWard2HO4uwZDfA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+</body>
+
+</html>

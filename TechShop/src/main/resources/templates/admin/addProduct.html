@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://freshcart.codescandy.com/dashboard/add-product.html -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Codescandy" name="author">
+    <title>Add Product Dashboard - FreshCart </title>
+    <link href="/admin/css/dropzone.min.css" rel="stylesheet">
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://freshcart.codescandy.com/assets/images/favicon/favicon.ico">
+
+    <link href="/site/css/notify.scss.css" rel="stylesheet" type="text/css" media="all">
+    <!-- Libs CSS -->
+    <link href="/admin/css/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="/admin/css/feather-icons.css" rel="stylesheet">
+    <link href="/admin/css/simplebar.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/admin/css/theme.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="/admin/js/app.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-M8S4MT3EYG');
+    </script>
+
+    <style data-jss="" data-meta="MuiDialog">
+        @media print {
+            .MuiDialog-root {
+                position: absolute !important;
+            }
+        }
+
+        .MuiDialog-scrollPaper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .MuiDialog-scrollBody {
+            overflow-x: hidden;
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        .MuiDialog-scrollBody:after {
+            width: 0;
+            height: 100%;
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .MuiDialog-container {
+            height: 100%;
+            outline: 0;
+        }
+
+        @media print {
+            .MuiDialog-container {
+                height: auto;
+            }
+        }
+
+        .MuiDialog-paper {
+            margin: 32px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        @media print {
+            .MuiDialog-paper {
+                box-shadow: none;
+                overflow-y: visible;
+            }
+        }
+
+        .MuiDialog-paperScrollPaper {
+            display: flex;
+            max-height: calc(100% - 64px);
+            flex-direction: column;
+        }
+
+        .MuiDialog-paperScrollBody {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .MuiDialog-paperWidthFalse {
+            max-width: calc(100% - 64px);
+        }
+
+        .MuiDialog-paperWidthXs {
+            max-width: 444px;
+        }
+
+        @media (max-width:507.95px) {
+            .MuiDialog-paperWidthXs.MuiDialog-paperScrollBody {
+                max-width: calc(100% - 64px);
+            }
+        }
+
+        .MuiDialog-paperWidthSm {
+            max-width: 600px;
+        }
+
+        @media (max-width:663.95px) {
+            .MuiDialog-paperWidthSm.MuiDialog-paperScrollBody {
+                max-width: calc(100% - 64px);
+            }
+        }
+
+        .MuiDialog-paperWidthMd {
+            max-width: 960px;
+        }
+
+        @media (max-width:1023.95px) {
+            .MuiDialog-paperWidthMd.MuiDialog-paperScrollBody {
+                max-width: calc(100% - 64px);
+            }
+        }
+
+        .MuiDialog-paperWidthLg {
+            max-width: 1280px;
+        }
+
+        @media (max-width:1343.95px) {
+            .MuiDialog-paperWidthLg.MuiDialog-paperScrollBody {
+                max-width: calc(100% - 64px);
+            }
+        }
+
+        .MuiDialog-paperWidthXl {
+            max-width: 1920px;
+        }
+
+        @media (max-width:1983.95px) {
+            .MuiDialog-paperWidthXl.MuiDialog-paperScrollBody {
+                max-width: calc(100% - 64px);
+            }
+        }
+
+        .MuiDialog-paperFullWidth {
+            width: calc(100% - 64px);
+        }
+
+        .MuiDialog-paperFullScreen {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            max-width: 100%;
+            max-height: none;
+            border-radius: 0;
+        }
+
+        .MuiDialog-paperFullScreen.MuiDialog-paperScrollBody {
+            margin: 0;
+            max-width: 100%;
+        }
+        .small-alert {
+    max-width: 300px; /* Điều chỉnh kích thước thông báo */
+    font-size: 14px; /* Điều chỉnh kích thước chữ */
+}
+    </style>
+</head>
+
+<body>
+    <!-- main wrapper -->
+
+    <nav class="navbar navbar-expand-lg navbar-glass">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="d-flex align-items-center">
+
+                    <a class="text-inherit d-block d-xl-none me-4" data-bs-toggle="offcanvas"
+                        href="https://freshcart.codescandy.com/dashboard/add-product.html#offcanvasExample"
+                        role="button" aria-controls="offcanvasExample">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-text-indent-right" viewBox="0 0 16 16">
+                            <path
+                                d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm10.646 2.146a.5.5 0 0 1 .708.708L11.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zM2 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z">
+                            </path>
+                        </svg>
+                    </a>
+
+                    <form role="search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+
+                    </form>
+                </div>
+                <div>
+                    <ul class="list-unstyled d-flex align-items-center mb-0 ms-5 ms-lg-0">
+
+                        <li class="dropdown-center ">
+                            <a class="position-relative btn-icon btn-ghost-secondary btn rounded-circle"
+                                href="https://freshcart.codescandy.com/dashboard/add-product.html#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-bell fs-5"></i>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 ms-n2">
+                                    2
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg p-0 border-0 ">
+                                <div class="border-bottom p-5 d-flex
+              justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="mb-1">Notifications</h5>
+                                        <p class="mb-0 small">You have 2 unread messages</p>
+                                    </div>
+                                    <a href="https://freshcart.codescandy.com/dashboard/add-product.html#!"
+                                        class="text-muted">
+                                    </a><a href="https://freshcart.codescandy.com/dashboard/add-product.html#"
+                                        class="btn btn-ghost-secondary btn-icon rounded-circle" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" data-bs-title="Mark all as read">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            fill="currentColor" class="bi bi-check2-all text-success"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z">
+                                            </path>
+                                            <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z">
+                                            </path>
+                                        </svg>
+                                    </a>
+
+                                </div>
+                                <div data-simplebar="init" style="height: 250px;">
+                                    <div class="simplebar-wrapper" style="margin: 0px;">
+                                        <div class="simplebar-height-auto-observer-wrapper">
+                                            <div class="simplebar-height-auto-observer"></div>
+                                        </div>
+                                        <div class="simplebar-mask">
+                                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                                    aria-label="scrollable content"
+                                                    style="height: auto; overflow: hidden;">
+                                                    <div class="simplebar-content" style="padding: 0px;">
+                                                        <!-- List group -->
+                                                        <ul
+                                                            class="list-group list-group-flush notification-list-scroll fs-6">
+                                                            <!-- List group item -->
+                                                            <li
+                                                                class="list-group-item px-5 py-4 list-group-item-action active">
+                                                                <a href="https://freshcart.codescandy.com/dashboard/add-product.html#!"
+                                                                    class="text-muted">
+                                                                    <div class="d-flex">
+                                                                        <img src="/admin/images/avatar-1.jpg" alt=""
+                                                                            class="avatar avatar-md rounded-circle ">
+                                                                        <div class="ms-4">
+                                                                            <p class="mb-1">
+                                                                                <span class="text-dark">Your order is
+                                                                                    placed</span> waiting for shipping
+                                                                            </p>
+                                                                            <span><svg
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="12" height="12"
+                                                                                    fill="currentColor"
+                                                                                    class="bi bi-clock text-muted"
+                                                                                    viewBox="0 0 16 16">
+                                                                                    <path
+                                                                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                                                                    </path>
+                                                                                </svg><small class="ms-2">1 minute
+                                                                                    ago</small></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+
+
+                                                            </li>
+                                                            <li
+                                                                class="list-group-item  px-5 py-4 list-group-item-action">
+                                                                <a href="https://freshcart.codescandy.com/dashboard/add-product.html#!"
+                                                                    class="text-muted">
+                                                                    <div class="d-flex">
+                                                                        <img src="/admin/images/avatar-5.jpg" alt=""
+                                                                            class="avatar avatar-md rounded-circle ">
+                                                                        <div class="ms-4">
+                                                                            <p class="mb-1">
+                                                                                <span class="text-dark">Jitu Chauhan
+                                                                                </span> answered to your pending order
+                                                                                list with notes
+                                                                            </p>
+                                                                            <span><svg
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="12" height="12"
+                                                                                    fill="currentColor"
+                                                                                    class="bi bi-clock text-muted"
+                                                                                    viewBox="0 0 16 16">
+                                                                                    <path
+                                                                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                                                                    </path>
+                                                                                </svg><small class="ms-2">2 days
+                                                                                    ago</small></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+
+
+                                                            </li>
+                                                            <li
+                                                                class="list-group-item px-5 py-4 list-group-item-action">
+                                                                <a href="https://freshcart.codescandy.com/dashboard/add-product.html#!"
+                                                                    class="text-muted">
+                                                                    <div class="d-flex">
+                                                                        <img src="/admin/images/avatar-2.jpg" alt=""
+                                                                            class="avatar avatar-md rounded-circle ">
+                                                                        <div class="ms-4">
+                                                                            <p class="mb-1">
+                                                                                <span class="text-dark">You have new
+                                                                                    messages</span> 2 unread messages
+                                                                            </p>
+                                                                            <span><svg
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="12" height="12"
+                                                                                    fill="currentColor"
+                                                                                    class="bi bi-clock text-muted"
+                                                                                    viewBox="0 0 16 16">
+                                                                                    <path
+                                                                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                                                                    </path>
+                                                                                </svg><small class="ms-2">3 days
+                                                                                    ago</small></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+
+
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                                        <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                                        <div class="simplebar-scrollbar" style="height: 0px; display: none;"></div>
+                                    </div>
+                                </div>
+                                <div class="border-top px-5 py-4 text-center">
+                                    <a href="https://freshcart.codescandy.com/dashboard/add-product.html#!" class=" ">
+                                        View All
+                                    </a>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li class="dropdown ms-4">
+                            <a href="https://freshcart.codescandy.com/dashboard/add-product.html#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/admin/images/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle">
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end p-0">
+
+
+
+                                <div class="lh-1 px-5 py-4 border-bottom">
+                                    <h5 class="mb-1 h6">FreshCart Admin</h5>
+                                    <small>admindemo@email.com</small>
+                                </div>
+
+
+
+                                <ul class="list-unstyled px-2 py-3">
+
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="https://freshcart.codescandy.com/dashboard/add-product.html#!">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="https://freshcart.codescandy.com/dashboard/add-product.html#!">
+                                            Profile
+                                        </a>
+
+
+                                    </li>
+
+
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="https://freshcart.codescandy.com/dashboard/add-product.html#!">
+
+                                            Settings
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <div class="border-top px-5 py-3">
+
+                                    <a href="https://freshcart.codescandy.com/dashboard/add-product.html#">Log Out</a>
+                                </div>
+
+
+
+                            </div>
+
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    <div class="main-wrapper">
+        <!-- navbar vertical -->
+        <th:block  th:insert="~{/admin/menu}"></th:block>
+
+
+        <!-- main -->
+        <main class="main-content-wrapper">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row mb-8">
+                    <div class="col-md-12">
+                        <div class="d-md-flex justify-content-between align-items-center">
+                            <!-- page header -->
+                            <div>
+                                <h2 th:if="${!productDto.isEdit}">Thêm mới sản phẩm</h2>
+                                <h2 th:if="${productDto.isEdit}">Cật nhâp sản phẩm</h2>
+                                <!-- breacrumb -->
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item"><a
+                                                href="https://freshcart.codescandy.com/dashboard/add-product.html#"
+                                                class="text-inherit">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a
+                                                href="https://freshcart.codescandy.com/dashboard/add-product.html#"
+                                                class="text-inherit">Products</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Add New Product</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <!-- button -->
+                            <div>
+                                <a href="/admin/product/list"
+                                    class="btn btn-light">Danh sách</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- row -->
+                <form class="row" th:object="${productDto}">
+
+                    <div class="col-lg-12 col-12">
+                        <!-- card -->
+                        <div class="card mb-6 card-lg">
+                            <!-- card body -->
+                            <div class="card-body p-6 ">
+                                <h4 class="mb-4 h5">Thông tin sản phẩm</h4>
+                                <div class="row">
+                                    <div class="col-8 row">
+                                        <!-- input -->
+                                        <div class="mb-3 col-lg-6">
+                                            <label class="form-label">Tên sản phẩm</label>
+                                            <input type="text" class="form-control" placeholder="Tên sản phẩm"
+                                                required="" id="product-name"
+                                                onchange="generateProductCode(this.value,'product-code')"
+                                                th:field="*{name}">
+
+                                            <input type="text" th:field="*{productId}" id="product-productId" hidden>
+                                        </div>
+                                        <!-- input -->
+
+                                        <!-- input -->
+                                        <div class="mb-3 col-lg-6">
+                                            <label class="form-label">Product Code</label>
+                                            <input type="text" class="form-control" placeholder="Product code"
+                                                required="" id="product-code" th:field="*{productCode}">
+                                        </div>
+                                        <!-- input -->
+                                        <div class="mb-3 col-lg-6">
+                                            <label class="form-label">Giá</label>
+                                            <input type="text" class="form-control" placeholder="Giá tiền"
+                                                id="product-price" th:field="*{price}">
+                                        </div>
+                                        <div class="mb-3 col-lg-6">
+                                            <label class="form-label">Ảnh</label>
+                                            <input type="file" class="form-control" id="product-image"
+                                                onchange="previewImage(this,'product-preview')">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 text-center">
+                                        <img th:if="${productDto.image == null}"
+                                            src="https://nayemdevs.com/wp-content/uploads/2020/03/default-product-image.png"
+                                            alt="" height="200px" width="200px" id="product-preview" class="ml-2">
+
+                                        <img th:if="${productDto.image != null}"
+                                            th:src="'/phonestore/images/'+${productDto.image}" alt="" height="200px" id="product-preview"
+                                            class="preview-image">
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label class="form-label">Tính năng đặc biệt</label>
+                                            <select class="form-control " id="product-feature" style="width: 100%;"
+                                                th:field="*{featureId}">
+                                                <option value="0">Vui lòng chọn tính năng</option>
+                                                <option th:each="item : ${listFeature}" th:text="${item.value}"
+                                                    th:value="${item.id}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label>Series</label>
+                                            <input type="file" class="form-control" name="" id="listImage" multiple>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label class="form-label">Thương hiệu</label>
+                                            <select class="form-control " id="product-brand" style="width: 100%;"
+                                                th:field="*{brandId}">
+                                                <option value="0">Vui lòng chọn thương hiệu</option>
+                                                <option th:each="item : ${listBrand}" th:text="${item.brandName}"
+                                                    th:value="${item.brandId}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label>Series</label>
+                                            <select class="form-control" style="width: 100%;" id="product-series">
+                                                <option value="0">Vui lòng chọn thương hiệu</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div id="attributeInputs" class="row">
+                                        <!-- Các ô input thuộc tính sẽ được đổ vào đây -->
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="version-container" class="row">
+
+                    </div>
+
+                    <div class="mt-2 row" id="description-container">
+
+
+                    </div>
+                    <div class="mt-2">
+
+                        <a onclick="saveOrUpdate()" class="btn btn-primary">
+                          Lưu sản phẩm
+                        </a>
+                        <button type="button" onclick="addVersion(null)" class="btn btn-warning text-white">Thêm phiên
+                            bản</button>
+                        <button type="button" onclick="addDescription(null)" class="btn btn-outline-danger">Thêm mô
+                            tả</button>
+
+                    </div>
+
+                </form>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="/site/js/notify.js" async=""></script>
+    <!-- Libs JS -->
+    <script src="/admin/js/jquery.min.js"></script>
+    <script src="/admin/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/js/simplebar.min.js"></script>
+
+    <!-- Theme JS -->
+    <script src="/admin/js/theme.min.js"></script>
+    <script src="/admin/js/quill.min.js"></script>
+    <script src="/admin/js/editor.js"></script>
+    <script src="/admin/js/dropzone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+        integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+
+            var selectedSeriesId = '[[${productDto.productSeriesId}]]'
+
+            const onChangeSelect = function () {
+
+
+                let brandId;
+
+                brandId = $('#product-brand').val()
+
+                console.log("ddd")
+                console.log(brandId);
+                $.ajax({
+                    url: '/admin/product-series-management/findByBrand/' + brandId,
+                    method: 'GET',
+                    success: function (response) {
+                        console.log(response)
+                        var seriesSelect = $('#product-series');
+                        seriesSelect.empty();
+                        if (response.length === 0) {
+                            var option = $('<option>').attr('value', 0).text('Thương hiệu này chưa có series');
+                            seriesSelect.append(option);
+                        }
+                        $.each(response, function (index, series) {
+                            var option = $('<option>').attr('value', series.productSeriesId).text(series.name);
+
+                            if (series.productSeriesId == selectedSeriesId) {
+                                option.prop('selected', true);
+                            }
+
+                            seriesSelect.append(option);
+                        });
+                        // Nếu bạn đang sử dụng Select2, bạn có thể gọi hàm refresh() để cập nhật lại UI
+                        seriesSelect.trigger('change');
+                    }
+                });
+
+                var attributeInputs = document.getElementById('attributeInputs');
+                attributeInputs.innerHTML = '';
+
+                if (brandId == 0) {
+
+                    return;
+
+                }
+
+                var productId = '[[${productDto.productId}]]';
+
+                var url = ''
+
+                if (productId) {
+                    url = '/admin/product/getAttributesByBrand/' + brandId + '/' + productId;
+                } else {
+                    url = '/admin/product/getAttributesByBrand/' + brandId
+                }
+
+                console.log(url);
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function (response) {
+                        var attributeInputs = document.getElementById('attributeInputs');
+                        attributeInputs.innerHTML = '';
+
+                        console.log(response)
+
+                        var colClass = 'col-lg-' + Math.floor(12 / 3); // Chia 3 cột trong Bootstrap
+
+                        response.forEach(function (attribute) {
+                            var input = document.createElement('input');
+                            var label = document.createElement('label');
+                            label.textContent = attribute.name
+
+
+                            input.type = 'text';
+                            input.value = '';
+                            input.dataset.attributesId = attribute.id;
+                            input.placeholder = attribute.name;
+                            input.className = "form-control"
+
+                            console.log(attribute.productAttributesValue)
+                            if (attribute.productAttributesValue) {
+                                input.value = attribute.productAttributesValue
+                            }
+
+
+                            var col = document.createElement('div');
+                            col.className = colClass + " mt-2 mb-2"
+                            col.appendChild(label)
+                            col.appendChild(input);
+
+                            attributeInputs.appendChild(col);
+                        });
+                    }
+                });
+
+                productId = ''
+
+            };
+
+            $('#product-brand').on('change', onChangeSelect);
+            onChangeSelect();
+
+
+
+        })
+    </script>
+
+    <script>
+
+
+        var versionCount = 0;
+        var listVersionCount = [];
+        var colorCount = 0;
+        var listcolorCount = [];
+
+        var descriptionCount = 0;
+        var listDescriptionCount = [];
+
+        var listColor = []
+
+        var product = {}
+
+
+        function getAllColor() {
+            $.ajax({
+                url: '/admin/color/getAllColor',
+                method: 'GET',
+                dataType: 'json',
+                success: function (colors) {
+                    listColor = colors;
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
+
+        getAllColor()
+
+        function addVersion(versionData) {
+            versionCount++; // Tăng biến đếm thương hiệu
+
+            if (versionData == null) {
+                versionData = {
+                    productVersionId: "",
+                    versionName: "",
+                    price: ""
+                }
+            }
+
+
+            var versionSection = document.createElement("div");
+            versionSection.className = "row card card-lg";
+            versionSection.id = "version-container-" + versionCount;
+            versionSection.innerHTML = `
+           <div class="row">
+            <div class="d-flex justify-content-end mt-4" >
+                            <i class="bi bi-x-lg" style="font-size : 20px" onclick="removeVersionForm(${versionCount},${versionData.productVersionId})"></i>
+                        </div>
+            <div class="col-lg-12">
+            <div class="card-body p-6">
+                    <div>
+                        <h4 class="mb-4 h5">Phiên bản ${versionCount}</h4> 
+                       
+                    </div>
+                    <div>
+                        <div class="mb-3">
+                            <label class="form-label">Tên phiên bản</label>
+                            <input type="text" class="form-control" hidden id="version-id-${versionCount}" value ="${versionData.productVersionId}">
+
+                            <input type="text" class="form-control" placeholder="Tên phiên bản" id="version-name-${versionCount}" value="${versionData.versionName}">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Giá</label>
+                            <input type="text" class="form-control" placeholder="Giá " value="${versionData.price}" id="version-price-${versionCount}">
+                        </div>
+                        
+                    </div>
+                   
+                    <button type="button" class="btn btn-outline-danger" onclick="addColorForm(${versionCount},${null})">Thêm màu sắc</button>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <table class="table table-centered mb-0 text-nowrap table-borderless">
+                    <thead class="bg-light">
+                      <tr>
+                        <th>Ảnh</th>
+                        <th>Giá nhập</th>
+                        <th>Giá bán</th>
+                        <th>Số lượng</th>
+                        <th>Màu sắc </th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="product-color-container-${versionCount}">
+                        
+                    </tbody>    
+                    </table>
+            </div> 
+            </div>   
+
+        `;
+
+            // Thêm phần tử mới vào phần container
+            var versionContainer = document.getElementById("version-container");
+            versionContainer.appendChild(versionSection);
+
+            listVersionCount.push(versionCount);
+            console.log(listVersionCount)
+            console.log(versionData)
+
+
+            if (versionData.productVersionId == "") {
+                addColorForm(versionCount, null)
+            } else {
+                versionData.productDetails.forEach((item, index) => {
+                    addColorForm(versionCount, item);
+                })
+            }
+        }
+
+        function generateColorOptions(selectedColor) {
+            console.log(listColor)
+            var options = '';
+            // Duyệt qua danh sách màu sắc và tạo các tùy chọn <option>
+            for (var i = 0; i < listColor.length; i++) {
+                var color = listColor[i];
+                var selected = color.id === selectedColor ? 'selected' : ''; // Kiểm tra nếu color.id bằng selectedColor
+                options += `<option value="${color.id}" ${selected}>${color.name}</option>`;
+            }
+            return options;
+        }
+
+        function removeVersionForm(id) {
+            console.log(id)
+            var containerVersion = $('#version-container-' + id);
+            containerVersion.remove();
+
+            var index = listVersionCount.indexOf(id);
+            if (index > -1) {
+                listVersionCount.splice(index, 1);
+                console.log(listVersionCount)
+            }
+
+
+        }
+
+        function previewImage(input, imageId) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var imagePreview = document.getElementById(imageId);
+                    imagePreview.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function addColorForm(id, productDetalis) {
+            colorCount++; // Tăng biến đếm thương hiệu
+
+            console.log(productDetalis)
+
+            if (productDetalis == null) {
+                productDetalis = {
+                    productDetailsId: '',
+                    quantity: '',
+                    importPrice: '',
+                    price: '',
+                    colorId: 0,
+                    // image:'/admin/images/bakery.svg'
+                }
+            }
+
+            var colorSection = document.createElement("tr");
+            colorSection.id = "color-row-" + colorCount;
+
+            colorSection.innerHTML = `
+
+                    <td>
+                        <div class="position-relative">
+                            <img class="image icon-shape icon-xxxl bg-light rounded-4"
+                            src="${productDetalis.image ? '/phonestore/images/' + productDetalis.image : '/admin/images/bakery.svg'}"
+                            alt="Image" id="color-preview-${colorCount}" />
+
+                                <div class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
+                                    <input type="file" class="file-input prdoductColor-image-${id}" id="color-image-${colorCount}" onchange="previewImage(this, 'color-preview-${colorCount}')"/>
+                                    <span class="icon-shape icon-sm rounded-circle bg-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                            fill="currentColor" class="bi bi-pencil-fill text-muted"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                    </td>
+                    <td>
+                        <input type="text" hidden class="form-control prdoductColor-id-${id}" value="${productDetalis.productDetailsId}">
+                    <input type="text" placeholder="Giá nhập" class="form-control prdoductColor-importPrice-${id}" value="${productDetalis.importPrice}">
+                    </td>    
+                    <td>
+                    <input type="text" placeholder="Giá bán" class="form-control prdoductColor-price-${id}" value="${productDetalis.price}">
+                    </td> 
+                    <td>
+                    <input type="number" step="1" class="form-control prdoductColor-quantity-${id}" style="width:100px" value="${productDetalis.quantity}">
+                    </td>
+                    <td>
+                        <select class="form-control prdoductColor-color-${id} " id="product-color" style="width: 100%;" selected="${productDetalis.colorId}">
+                                        <option value="0">Chọn màu sắc</option>
+                                        ${generateColorOptions(productDetalis.colorId)}
+                        </select>
+                    </td>
+                    <td>
+                        <i class="bi bi-trash" onclick="removeColorForm(${colorCount},${productDetalis.productDetailsId})"></i>
+                    </td>
+                    
+        `;
+
+            // Thêm phần tử mới vào phần container
+            var colorContainer = document.getElementById("product-color-container-" + id);
+            colorContainer.appendChild(colorSection);
+
+            listcolorCount.push(colorCount);
+
+        }
+
+        function removeVersionForm(id,versionId) {
+            console.log(id)
+            var containerVersion = $('#version-container-' + id);
+            containerVersion.remove();
+
+            var index = listVersionCount.indexOf(id);
+            if (index > -1) {
+                listVersionCount.splice(index, 1);
+                console.log(listVersionCount)
+            }
+
+            if(versionId){
+                deleteProductVersion(versionId);
+            }
+
+
+        }
+
+        function removeColorForm(id, productDetailsId) {
+
+            Swal.fire({
+                title: 'Bạn có chắc muốn xóa màu sắc này không!',
+                text: "Không thể hoàn tác nếu đang cập nhật!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Xác nhận!',
+                cancelButtonText: 'Hủy!',
+                
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var containerColor = $('#color-row-' + id);
+                    containerColor.remove();
+
+                    var index = listcolorCount.indexOf(id);
+                    if (index > -1) {
+                        listcolorCount.splice(index, 1);
+                        // console.log(listVersionCount)
+                    }
+
+                    if (productDetailsId) {
+                        deleteProductDetails(productDetailsId);
+                    }
+                }
+            })
+
+        }
+
+        function addDescription(descriptionData) {
+            descriptionCount++; // Tăng biến đếm thương hiệu
+
+
+            if (descriptionData == null) {
+                descriptionData = {
+                    id: '',
+                    title: '',
+                    description: '',
+                    image: '',
+                }
+            }
+
+            var descriptionSection = document.createElement("div");
+            descriptionSection.className = "card card-lg col-lg-6";
+            descriptionSection.id = "description-container-" + descriptionCount;
+            descriptionSection.innerHTML = `
+           
+            <div class="card-body p-6">
+                    <h4 class="mb-4 h5">Mô tả ${descriptionCount}</h4> 
+                    <div>
+                        <div class="mb-3">
+                            <label class="form-label">Tiêu đề</label>
+                            <input type="text" class="form-control" hidden id="description-id-${descriptionCount}" value="${descriptionData.id}">
+                            <input type="text" class="form-control" placeholder="Tiêu đề" id="description-title-${descriptionCount}" value="${descriptionData.title}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Ảnh</label>
+                            <input type="file" class="form-control" id="description-image-${descriptionCount}">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Mô tả</label>
+                            <Textarea class="form-control" id="description-description-${descriptionCount}">${descriptionData.description} </Textarea>
+                        </div>
+                        
+                    </div>
+                    <button class="btn btn-danger" onclick="removeDescriptionForm(${descriptionCount},${descriptionData.id})">Xóa</button>
+                </div>
+       
+
+        `;
+
+            // Thêm phần tử mới vào phần container
+            var descriptionContainer = document.getElementById("description-container");
+            descriptionContainer.appendChild(descriptionSection);
+
+            listDescriptionCount.push(descriptionCount);
+        }
+
+        function removeDescriptionForm(id,descriptionId) {
+            console.log(id)
+            var containerDescription = $('#description-container-' + id);
+            containerDescription.remove();
+
+            var index = listDescriptionCount.indexOf(id);
+            if (index > -1) {
+                listDescriptionCount.splice(index, 1);
+                console.log(listDescriptionCount)
+            }
+
+            if(descriptionId) {
+                deleteDescription(descriptionId);
+            }
+
+        }
+
+        function saveOrUpdate() {
+            console.log(listVersionCount)
+
+            var formData = new FormData();
+
+            var productId = $('#product-productId').val();
+            var productName = $('#product-name').val();
+            var productCode = $('#product-code').val();
+            var price = $('#product-price').val();
+            var productImage = $('#product-image').prop('files')[0];
+            var seriesId = $('#product-series').val();
+            var featureId = $('#product-feature').val();
+
+            var listFiles = $('#listImage')[0].files;
+
+            if (listFiles.length > 0) {
+                for (var i = 0; i < listFiles.length; i++) {
+                    formData.append('listImages[]', listFiles[i]);
+                }
+            }
+
+
+            var attributeInputs = document.querySelectorAll('#attributeInputs input');
+
+
+            attributeInputs.forEach(function (input, index) {
+                var attributeId = input.dataset.attributesId;
+                var attributeValue = input.value;
+
+                formData.append('listAttributes[' + index + '].id', attributeId);
+                formData.append('listAttributes[' + index + '].name', attributeValue);
+
+            });
+
+            var listVersions = [];
+
+            listVersionCount.forEach((item) => {
+                var versionId = $('#version-id-' + item).val();
+                var versionName = $('#version-name-' + item).val();
+                var versionPrice = $('#version-price-' + item).val();
+
+                var importPriceElements = $('.prdoductColor-importPrice-' + item);
+                var priceElements = $('.prdoductColor-price-' + item);
+                var imageElements = $('.prdoductColor-image-' + item);
+                var colorElements = $('.prdoductColor-color-' + item);
+                var quantityElements = $('.prdoductColor-quantity-' + item);
+                var detailsElements = $('.prdoductColor-id-' + item);
+
+
+                var listProductColor = [];
+
+                for (var i = 0; i < priceElements.length; i++) {
+                    var importPrice = importPriceElements[i].value;
+                    var price = priceElements[i].value;
+                    var image = imageElements[i].files[0];
+                    var color = colorElements[i].value;
+                    var quantity = quantityElements[i].value;
+                    var productDetailsId = detailsElements[i].value;
+                    var productColor = {
+                        productDetailsId: productDetailsId,
+                        importPrice: importPrice,
+                        price: price,
+                        fileImgae: image,
+                        colorId: color,
+                        quantity: quantity
+                    }
+
+                    listProductColor.push(productColor);
+                }
+
+                var productVersion = {
+                    versionId: versionId,
+                    versionName: versionName,
+                    price: versionPrice,
+                    productDetails: listProductColor
+                }
+
+                listVersions.push(productVersion);
+
+            })
+
+
+
+            formData.append("productId", productId)
+            formData.append("name", productName),
+            formData.append("productCode", productCode)
+            formData.append("price", price)
+
+            formData.append("productSeriesId", seriesId)
+            formData.append("featureId", featureId)
+
+            if (productImage && productImage.type.startsWith('image/')) {
+                formData.append("fileImage", productImage)
+            }
+
+            listVersions.forEach((version, index) => {
+                formData.append(`versions[${index}].productVersionId`, version.versionId);
+                formData.append(`versions[${index}].versionName`, version.versionName);
+                formData.append(`versions[${index}].price`, version.price);
+
+                version.productDetails.forEach((productColor, colorIndex) => {
+                    formData.append(`versions[${index}].productDetails[${colorIndex}].productDetailsId`, productColor.productDetailsId);
+                    formData.append(`versions[${index}].productDetails[${colorIndex}].importPrice`, productColor.importPrice);
+                    formData.append(`versions[${index}].productDetails[${colorIndex}].price`, productColor.price);
+
+                    formData.append(`versions[${index}].productDetails[${colorIndex}].colorId`, productColor.colorId);
+                    formData.append(`versions[${index}].productDetails[${colorIndex}].quantity`, productColor.quantity);
+
+                    if (productColor.fileImgae && productColor.fileImgae.type.startsWith('image/')) {
+                        formData.append(`versions[${index}].productDetails[${colorIndex}].fileImgae`, productColor.fileImgae);
+                    }
+                });
+            });
+
+            listDescriptionCount.forEach((des, index) => {
+                formData.append(`descriptions[${index}].id`, $('#description-id-' + des).val());
+                formData.append(`descriptions[${index}].title`, $('#description-title-' + des).val());
+
+                formData.append(`descriptions[${index}].description`, $('#description-description-' + des).val());
+
+                var descriptionImage = $('#description-image-' + des).prop('files')[0]
+
+                if (descriptionImage && descriptionImage.type.startsWith('image/')) {
+                    formData.append(`descriptions[${index}].image`, descriptionImage)
+                }
+            })
+
+
+
+            // Gửi dữ liệu lên server bằng Ajax hoặc Fetch API
+            // Ví dụ sử dụng Ajax
+           axios.post('/admin/product/saveOrUpdate',formData)
+                .then(response => {
+                  var text = productId ? "Cập nhập sản phẩm thành công!":"Thêm sản phẩm thành công!";
+
+                  alterSucess("Thông báo",text)
+
+                  window.location.href = "/admin/success"
+                })
+                .catch(error => {
+                  if(error.response.status == 409){
+                    alterError("Thông báo",error.response.data.message)
+                  }else{
+                    alterError("Thông báo","Thêm sản phẩm thất bại!")
+                  }
+                });
+        }
+
+        function generateProductCode(productName, codeId) {
+            var productCode = generateSlugBrand(productName);
+            var codeInput = document.getElementById(codeId);
+            codeInput.value = productCode;
+        }
+
+        function generateSlugBrand(text) {
+            return text.toLowerCase()
+                .replace(/[^\w\s-]/g, '') // Xóa ký tự không hợp lệ
+                .replace(/\s+/g, '-') // Thay thế khoảng trắng bằng dấu gạch ngang
+                .replace(/--+/g, '-') // Loại bỏ các dấu gạch ngang liên tiếp
+                .trim(); // Xóa khoảng trắng thừa ở đầu và cuối
+        }
+
+
+        function editProduct() {
+            var productId = '[[${productId}]]'
+            console.log(productId)
+            if (productId) {
+                $.ajax({
+                    url: '/admin/product/find/' + productId,
+                    method: 'GET',
+                    success: function (response) {
+                        product = response
+
+                        product.versions.forEach((item, index) => {
+                            addVersion(item)
+                        })
+
+                        product.descriptions.forEach((desc) => {
+                            addDescription(desc)
+                        })
+                    },
+                    error: function (error) {
+
+                    }
+                });
+            }
+        }
+
+
+        editProduct()
+
+        function deleteProductDetails(id) {
+            axios.delete('/admin/product-details-management/delete/' + id)
+                .then(res => {
+                    alterSucess("Thông báo", "Xóa màu sắc sản phẩm thành công!")
+                }).catch(error => {
+                    console.log(error)
+                    alterError("Thông báo", "Xóa màu sắc sản phẩm không thành công!")
+                })
+        }
+
+        function deleteProductVersion(id) {
+            axios.delete('/admin/product-version-management/delete/' + id)
+                .then(res => {
+                    alterSucess("Thông báo", "Xóa phiên bản thành công!")
+                }).catch(error => {
+                    console.log(error)
+                    alterError("Thông báo", "Xóa phiên bản không thành công!")
+                })
+        }
+
+        function deleteDescription(id) {
+            axios.delete('/admin/description/delete/' + id)
+                .then(res => {
+                    alterSucess("Thông báo", "Xóa mô tả thành công!")
+                }).catch(error => {
+                    console.log(error)
+                    alterError("Thông báo", "Xóa mô tả không thành công!")
+                })
+        }
+
+        function alterSucess(title, text) {
+
+            new Notify({
+                status: 'success', title: title, text: text,
+                effect: 'slide', speed: 300, showIcon: true, showCloseButton: true, autoclose: true, autotimeout: 2000, gap: 20, distance: 20, type: 1, position: 'right top',
+            })
+        }
+
+        function alterError(title, text) {
+            new Notify({
+                status: 'error', title: title, text: text,
+                effect: 'slide', speed: 300, showIcon: true, showCloseButton: true, autoclose: true, autotimeout: 2000, gap: 20, distance: 20, type: 1, position: 'right top',
+            })
+        }
+
+    </script>
+
+
+
+    <input type="file" multiple="multiple" class="dz-hidden-input" tabindex="-1"
+        style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+    <div id="92C6710E-AE81-E457-D18A-0174264BD197"></div>
+</body>
+
+</html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://freshcart.codescandy.com/dashboard/add-category.html -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <!-- Required meta tags -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta content="Codescandy" name="author" />
+    <title>Add Category Dashboard - FreshCart</title>
+    <link href="/admin/css/dropzone.min.css" rel="stylesheet" />
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://freshcart.codescandy.com/assets/images/favicon/favicon.ico" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <!-- Libs CSS -->
+    <link href="/site/css/notify.scss.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/admin/css/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="/admin/css/feather-icons.css" rel="stylesheet" />
+    <link href="/admin/css/simplebar.min.css" rel="stylesheet" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/admin/css/theme.min.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="/admin/js/app.js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-M8S4MT3EYG");
+    </script>
+</head>
+
+<body>
+    <!-- main wrapper -->
+
+    <nav class="navbar navbar-expand-lg navbar-glass">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="d-flex align-items-center">
+                    <a class="text-inherit d-block d-xl-none me-4" data-bs-toggle="offcanvas"
+                        href="https://freshcart.codescandy.com/dashboard/add-category.html#offcanvasExample"
+                        role="button" aria-controls="offcanvasExample">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-text-indent-right" viewBox="0 0 16 16">
+                            <path
+                                d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm10.646 2.146a.5.5 0 0 1 .708.708L11.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zM2 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z">
+                            </path>
+                        </svg>
+                    </a>
+
+                    <form role="search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+                    </form>
+                </div>
+                <div>
+                    <ul class="list-unstyled d-flex align-items-center mb-0 ms-5 ms-lg-0">
+                        <li class="dropdown-center">
+                            <a class="position-relative btn-icon btn-ghost-secondary btn rounded-circle"
+                                href="https://freshcart.codescandy.com/dashboard/add-category.html#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-bell fs-5"></i>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 ms-n2">
+                                    2
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg p-0 border-0">
+                                <div class="border-bottom p-5 d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="mb-1">Notifications</h5>
+                                        <p class="mb-0 small">You have 2 unread messages</p>
+                                    </div>
+                                    <a href="https://freshcart.codescandy.com/dashboard/add-category.html#!"
+                                        class="text-muted">
+                                    </a><a href="https://freshcart.codescandy.com/dashboard/add-category.html#"
+                                        class="btn btn-ghost-secondary btn-icon rounded-circle" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" data-bs-title="Mark all as read">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            fill="currentColor" class="bi bi-check2-all text-success"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z">
+                                            </path>
+                                            <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div data-simplebar="init" style="height: 250px">
+                                    <div class="simplebar-wrapper" style="margin: 0px">
+                                        <div class="simplebar-height-auto-observer-wrapper">
+                                            <div class="simplebar-height-auto-observer"></div>
+                                        </div>
+                                        <div class="simplebar-mask">
+                                            <div class="simplebar-offset" style="right: 0px; bottom: 0px">
+                                                <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                                    aria-label="scrollable content"
+                                                    style="height: auto; overflow: hidden">
+                                                    <div class="simplebar-content" style="padding: 0px">
+                                                        <!-- List group -->
+                                                        <ul
+                                                            class="list-group list-group-flush notification-list-scroll fs-6">
+                                                            <!-- List group item -->
+                                                            <li
+                                                                class="list-group-item px-5 py-4 list-group-item-action active">
+                                                                <a href="https://freshcart.codescandy.com/dashboard/add-category.html#!"
+                                                                    class="text-muted">
+                                                                    <div class="d-flex">
+                                                                        <img src="/admin/images/avatar-1.jpg" alt=""
+                                                                            class="avatar avatar-md rounded-circle" />
+                                                                        <div class="ms-4">
+                                                                            <p class="mb-1">
+                                                                                <span class="text-dark">Your order is
+                                                                                    placed</span>
+                                                                                waiting for shipping
+                                                                            </p>
+                                                                            <span><svg
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="12" height="12"
+                                                                                    fill="currentColor"
+                                                                                    class="bi bi-clock text-muted"
+                                                                                    viewBox="0 0 16 16">
+                                                                                    <path
+                                                                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                                                                    </path>
+                                                                                </svg><small class="ms-2">1 minute
+                                                                                    ago</small></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li
+                                                                class="list-group-item px-5 py-4 list-group-item-action">
+                                                                <a href="https://freshcart.codescandy.com/dashboard/add-category.html#!"
+                                                                    class="text-muted">
+                                                                    <div class="d-flex">
+                                                                        <img src="/admin/images/avatar-5.jpg" alt=""
+                                                                            class="avatar avatar-md rounded-circle" />
+                                                                        <div class="ms-4">
+                                                                            <p class="mb-1">
+                                                                                <span class="text-dark">Jitu Chauhan
+                                                                                </span>
+                                                                                answered to your pending order list
+                                                                                with notes
+                                                                            </p>
+                                                                            <span><svg
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="12" height="12"
+                                                                                    fill="currentColor"
+                                                                                    class="bi bi-clock text-muted"
+                                                                                    viewBox="0 0 16 16">
+                                                                                    <path
+                                                                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                                                                    </path>
+                                                                                </svg><small class="ms-2">2 days
+                                                                                    ago</small></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                            <li
+                                                                class="list-group-item px-5 py-4 list-group-item-action">
+                                                                <a href="https://freshcart.codescandy.com/dashboard/add-category.html#!"
+                                                                    class="text-muted">
+                                                                    <div class="d-flex">
+                                                                        <img src="/admin/images/avatar-2.jpg" alt=""
+                                                                            class="avatar avatar-md rounded-circle" />
+                                                                        <div class="ms-4">
+                                                                            <p class="mb-1">
+                                                                                <span class="text-dark">You have new
+                                                                                    messages</span>
+                                                                                2 unread messages
+                                                                            </p>
+                                                                            <span><svg
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="12" height="12"
+                                                                                    fill="currentColor"
+                                                                                    class="bi bi-clock text-muted"
+                                                                                    viewBox="0 0 16 16">
+                                                                                    <path
+                                                                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                                                                    </path>
+                                                                                </svg><small class="ms-2">3 days
+                                                                                    ago</small></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="simplebar-placeholder" style="width: 0px; height: 0px"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden">
+                                        <div class="simplebar-scrollbar" style="width: 0px; display: none"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-vertical" style="visibility: hidden">
+                                        <div class="simplebar-scrollbar" style="height: 0px; display: none"></div>
+                                    </div>
+                                </div>
+                                <div class="border-top px-5 py-4 text-center">
+                                    <a href="https://freshcart.codescandy.com/dashboard/add-category.html#!" class=" ">
+                                        View All
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown ms-4">
+                            <a href="https://freshcart.codescandy.com/dashboard/add-category.html#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/admin/images/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle" />
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end p-0">
+                                <div class="lh-1 px-5 py-4 border-bottom">
+                                    <h5 class="mb-1 h6">FreshCart Admin</h5>
+                                    <small>admindemo@email.com</small>
+                                </div>
+
+                                <ul class="list-unstyled px-2 py-3">
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="https://freshcart.codescandy.com/dashboard/add-category.html#!">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="https://freshcart.codescandy.com/dashboard/add-category.html#!">
+                                            Profile
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="https://freshcart.codescandy.com/dashboard/add-category.html#!">
+                                            Settings
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="border-top px-5 py-3">
+                                    <a href="https://freshcart.codescandy.com/dashboard/add-category.html#">Log Out</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-wrapper">
+        <!-- navbar vertical -->
+        <!-- <th:block th:insert="~{/admin/menu :: menu}"></th:block> -->
+        <!-- <th:block th:include="/admin/menu"></th:block> -->
+        <!-- <div th:insert="~{/admin/menu}"></div> -->
+        <th:block  th:insert="~{/admin/menu}"></th:block>
+ 
+
+        <!-- main -->
+        <main class="main-content-wrapper">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row mb-8">
+                    <div class="col-md-12">
+                        <div class="d-md-flex justify-content-between align-items-center">
+                            <!-- page header -->
+                            <div>
+                                <h2> Thêm doanh mục</h2>
+                                <!-- breacrumb -->
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb mb-0">
+                                        <li class="breadcrumb-item">
+                                            <a href="https://freshcart.codescandy.com/dashboard/add-category.html#"
+                                                class="text-inherit">Dashboard</a>
+                                        </li>
+                                        <li class="breadcrumb-item">
+                                            <a href="https://freshcart.codescandy.com/dashboard/add-category.html#"
+                                                class="text-inherit">Categories</a>
+                                        </li>
+                                        <li class="breadcrumb-item active" aria-current="page">
+                                            Thêm doanh mục
+                                        </li>
+                                    </ol>
+                                </nav>
+                            </div>
+                            <div>
+                                <a href="/admin/category/list" class="btn btn-light">Danh sách</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="row" th:object="${category}">
+                    <div class="col-lg-12 col-12">
+                        <!-- card -->
+                        <div class="card mb-6 shadow border-0">
+                            <!-- card body -->
+                            <div class="card-body p-6">
+                                <h4 class="mb-5 h5">Hình ảnh</h4>
+                                <div class="mb-4 d-flex">
+                                    <div class="position-relative">
+                                        <img class="image icon-shape icon-xxxl bg-light rounded-4"
+                                            th:if="${category.image == null}" src="/admin/images/bakery.svg"
+                                            alt="Image" />
+
+
+                                        <img th:if="${category.image != null}"
+                                            th:src="'/phonestore/images/'+${category.image}" alt="" height="200px"
+                                            id="product-preview" class="image icon-shape icon-xxxl bg-light rounded-4">
+
+                                        <div class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
+                                            <input type="file" class="file-input" id="category-image" />
+                                            <span class="icon-shape icon-sm rounded-circle bg-white">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                    fill="currentColor" class="bi bi-pencil-fill text-muted"
+                                                    viewBox="0 0 16 16">
+                                                    <path
+                                                        d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="mb-4 h5 mt-5">Thông tin doanh mục</h4>
+
+                                <div class="row">
+                                    <!-- input -->
+                                    <div class="mb-3 col-lg-6">
+                                        <label class="form-label">Tên Doanh mục</label>
+                                        <input type="text" hidden id="category-id" th:field="*{id}">
+                                        <input type="text" class="form-control" placeholder="tên doanh mục"
+                                            id="category-name" required="" oninput="generateSlug()"
+                                            th:field="*{name}" />
+                                    </div>
+                                    <!-- input -->
+                                    <div class="mb-3 col-lg-6">
+                                        <label class="form-label">Mã doanh mục</label>
+                                        <input type="text" class="form-control" placeholder="mã doanh mục" required=""
+                                            id="category-code" th:field="*{categoryCode}" />
+                                    </div>
+                                    <!-- input -->
+
+                                    <div id="brand-container">
+                                        <!-- <h4 class="mb-4 h5 mt-5">Thông tin thương hiệu con</h4> -->
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <button type="button" class="btn btn-danger" onclick="addBrand()">
+                                            Thêm thương hiệu
+                                        </button>
+                                    </div>
+
+                                    <div class="col-lg-12 mt-5">
+                                        <a onclick="saveOrUpdate()" class="btn btn-primary">
+                                            Thêm doanh mục
+                                        </a>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/unidecode/1.1.1/unidecode.min.js"></script> -->
+    <script>
+        function generateSlug() {
+            var categoryName = document.getElementById("category-name").value;
+            var slug = categoryName.toLowerCase().replace(/ /g, "-");
+            document.getElementById("category-code").value = slug;
+        }
+    </script>
+
+    <!-- Libs JS -->
+    <script src="/site/js/notify.js" async=""></script>
+    <!-- Libs JS -->
+    <script src="/admin/js/jquery.min.js"></script>
+    <script src="/admin/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/js/simplebar.min.js"></script>
+
+    <!-- Theme JS -->
+    <script src="/admin/js/theme.min.js"></script>
+    <script src="/admin/js/quill.min.js"></script>
+    <script src="/admin/js/editor.js"></script>
+    <script src="/admin/js/dropzone.min.js"></script>
+    <script src="/site/js/alert.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
+        integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/admin/js/flatpickr.min.js"></script>
+    <!-- <script src="/site/js/alert.js"></script> -->
+    <script>
+        var brandCount = 0; // Biến đếm số lượng thương hiệu đã được thêm
+        var seriesCount = 0;
+        var listBrandCount = [];
+
+        function addBrand(brandData) {
+            brandCount++; // Tăng biến đếm thương hiệu
+
+            if (brandData == null) {
+                brandData = {
+                    brandId: '',
+                    brandCode: '',
+                    name: '',
+                }
+            }
+
+            // Tạo các phần tử HTML mới cho một thương hiệu
+            var brandSection = document.createElement("div");
+            brandSection.className = "mb-3 col-lg-12 contaier";
+            brandSection.id = "brand-container-" + brandCount;
+            brandSection.innerHTML = `
+            <h2 class="mb-4 h5 mt-5" style="color : #db3030">Thương hiệu ${brandCount}</h2>
+            <div class="d-flex justify-content-end mt-4" >
+                            <i class="bi bi-x-lg" style="font-size : 20px" onclick="removeBrandForm(${brandCount},${brandData.brandId})""></i>
+                        </div>
+            <h4 class="mb-5 h5">Hình ảnh</h4>
+            <div class="mb-4 d-flex">
+                <div class="position-relative">
+                    <img id="brand-preview-${brandCount}" class="image icon-shape icon-xxxl bg-light rounded-4" src="${brandData.image ? '/phonestore/images/' + brandData.image : '/admin/images/bakery.svg'}" alt="Image" />
+
+
+                    <div class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
+                        <input type="file" class="file-input" id="brand-image-${brandCount}"  onchange="previewImage(this, 'brand-preview-${brandCount}')"/>
+
+                        <span class="icon-shape icon-sm rounded-circle bg-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                fill="currentColor" class="bi bi-pencil-fill text-muted"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z">
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+            <div class="mb-3 col-lg-6">
+                <label class="form-label">Tên thương hiệu</label>
+                <input type="text" class="form-control" hidden value=${brandData.brandId} id="brand-id-${brandCount}">
+                <input type="text" class="form-control" placeholder="Tên thương hiệu" id="brand-name-${brandCount}" value="${brandData.name}" oninput="generateBrandCode(this.value, 'brand-code-${brandCount}')"/>
+            </div>
+            <div class="mb-3 col-lg-6">
+                <label class="form-label">Mã thương hiệu</label>
+                <input type="text" class="form-control" placeholder="Mã thương hiệu" value="${brandData.brandCode}" id="brand-code-${brandCount}" />
+            </div>
+            </div>
+
+            <div class="mb-3 ">
+              
+              <button type="button" class="btn btn-primary ml-4" onclick="addSeriesForm(${brandCount})">Thêm series</button>
+          </div>
+
+
+            <table class="table table-centered mb-0 text-nowrap table-borderless">
+                    <thead class="bg-light">
+                      <tr>
+                        <th>Ảnh</th>
+                        <th>Tên series</th>
+                        <th>Mã series</th>
+                       
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="series-container-${brandCount}">
+                        
+                    </tbody>    
+                    </table>
+
+          
+       
+
+        `;
+
+            // Thêm phần tử mới vào phần container
+            var brandContainer = document.getElementById("brand-container");
+            brandContainer.appendChild(brandSection);
+            listBrandCount.push(brandCount);
+
+            if (brandData.brandId == "") {
+                addSeriesForm(brandCount, null)
+            } else {
+
+                brandData.series.forEach((series, index) => {
+                    addSeriesForm(brandCount, series)
+                })
+
+            }
+        }
+
+        function previewImage(input, imageId) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var imagePreview = document.getElementById(imageId);
+                    imagePreview.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        function generateBrandCode(brandName, codeId) {
+            var brandCode = generateSlugBrand(brandName);
+            var codeInput = document.getElementById(codeId);
+            codeInput.value = brandCode;
+        }
+
+        function generateSlugBrand(text) {
+            return text.toLowerCase()
+                .replace(/[^\w\s-]/g, '') // Xóa ký tự không hợp lệ
+                .replace(/\s+/g, '-') // Thay thế khoảng trắng bằng dấu gạch ngang
+                .replace(/--+/g, '-') // Loại bỏ các dấu gạch ngang liên tiếp
+                .trim(); // Xóa khoảng trắng thừa ở đầu và cuối
+        }
+
+        function removeBrandForm(id,brandId) {
+            console.log(id)
+            var containerBrand = $('#brand-container-' + id);
+            containerBrand.empty();
+
+            var index = listBrandCount.indexOf(id);
+            if (index > -1) {
+                listBrandCount.splice(index, 1);
+                console.log(listBrandCount)
+            }
+
+            if(brandId){
+                deleteBrand(brandId);
+            }
+
+        }
+
+        function addSeriesForm(id, seriesData) {
+            seriesCount++;
+            console.log('seriesData ')
+            console.log(seriesData)
+            if (seriesData == null) {
+                seriesData = {
+                    productSeriesId: '',
+                    name: '',
+                    seriesCode: ''
+                }
+            }
+
+            console.log("dđ " + id)
+            // Tạo các phần tử HTML mới cho một thương hiệu
+            var seriesSection = document.createElement("tr");
+            // seriesSection.className = "mb-3 col-lg-12 p-4";
+            seriesSection.id = "series-container-" + id + "-" + seriesCount;
+            seriesSection.innerHTML = `
+         
+                   <td>
+                    <div class="position-relative">
+                            <img id="series-preview-${seriesCount}" class="image icon-shape icon-xxxl bg-light rounded-4" src="${seriesData.image ? '/phonestore/images/' + seriesData.image : '/admin/images/bakery.svg'}" alt="Image" />
+
+
+                            <div class="file-upload position-absolute end-0 top-0 mt-n2 me-n1">
+                                <input type="file" class="file-input series-image-${id}" id="series-image-${seriesCount}" onchange="previewImage(this, 'series-preview-${seriesCount}')""/>
+
+                                <span class="icon-shape icon-sm rounded-circle bg-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                        fill="currentColor" class="bi bi-pencil-fill text-muted"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="mb-3 col-lg-6">
+                        <label class="form-label">Tên series</label>
+                        <input type="text" class="form-control series-id-${id}" hidden value="${seriesData.productSeriesId}">
+                        <input type="text" value="${seriesData.name}" class="form-control series-name-${id}" placeholder="Tên series"  id="series-name-${id}-${seriesCount}" oninput="generateBrandCode(this.value, 'series-code-${id}-${seriesCount}')"/>
+                    </div>    
+                    </td>
+                    <td>
+                        <div class="mb-3 col-lg-6">
+                        <label class="form-label">Mã series</label>
+                        <input type="text"value="${seriesData.seriesCode}" class="form-control series-code-${id}" placeholder="Mã series" id="series-code-${id}-${seriesCount}" />
+                    </div>    
+                    </td>
+                
+                    <td>
+                   
+                        <i class="bi bi-trash" onclick="removeSeriesForm(${id},${seriesCount},${seriesData.productSeriesId})"></i>
+                    </td>
+
+                    `;
+
+            // Thêm phần tử mới vào phần container
+            var seriesContainer = document.getElementById("series-container-" + id);
+            seriesContainer.appendChild(seriesSection);
+
+        }
+
+        function removeSeriesForm(id, seriesCount,productSeriesId) {
+            var containerSeries = $("#series-container-" + id + "-" + seriesCount);
+            containerSeries.remove();
+
+            if(productSeriesId){
+                deleteSeries(productSeriesId);
+            }
+        }
+        // function alertSucess(title, text) {
+
+        //     new Notify({
+        //         status: 'success', title: title, text: text,
+        //         effect: 'slide', speed: 300, showIcon: true, showCloseButton: true, autoclose: true, autotimeout: 2000, gap: 20, distance: 20, type: 1, position: 'right top',
+        //     })
+        // }
+
+        // function alertError(title, text) {
+        //     new Notify({
+        //         status: 'error', title: title, text: text,
+        //         effect: 'slide', speed: 300, showIcon: true, showCloseButton: true, autoclose: true, autotimeout: 2000, gap: 20, distance: 20, type: 1, position: 'right top',
+        //     })
+        // }
+        function saveOrUpdate() {
+            var categoryName = $('#category-name').val();
+            var categoryCode = $('#category-code').val();
+            var categoryId = $('#category-id').val();
+            var categoryImage = $('#category-image').prop('files')[0];
+
+            var listBrand = [];
+
+            listBrandCount.forEach((item) => {
+                console.log(item)
+
+                var brandImage = $('#brand-image-' + item).prop('files')[0];
+                var brandName = $('#brand-name-' + item).val();
+                var brandCode = $('#brand-code-' + item).val();
+                var brandId = $('#brand-id-' + item).val();
+
+                var imageElements = $(".series-image-" + item);
+                var nameElements = $(".series-name-" + item);
+                var codeElements = $(".series-code-" + item);
+                var idElements = $(".series-id-" + item);
+
+                console.log(nameElements)
+
+                var seriesData = [];
+
+                for (var i = 0; i < imageElements.length; i++) {
+                    var image = imageElements[i].files[0];
+                    var name = nameElements[i].value;
+                    var code = codeElements[i].value;
+                    var id = idElements[i].value;
+
+
+                    var series = {
+                        seriesId: id,
+                        image: image,
+                        name: name,
+                        code: code
+                    };
+
+
+                    seriesData.push(series);
+                }
+
+                console.log(seriesData);
+                var brand = {
+                    image: brandImage,
+                    name: brandName,
+                    brandCode: brandCode,
+                    brandId: brandId,
+                    series: seriesData
+                };
+
+                listBrand.push(brand);
+
+            })
+
+            console.log(listBrand);
+
+
+
+            var formData = new FormData();
+
+            formData.append('id', categoryId)
+            formData.append('name', categoryName);
+            formData.append('categoryCode', categoryCode);
+
+            if (categoryImage && categoryImage.type.startsWith('image/')) {
+                formData.append('image', categoryImage)
+            }
+
+            listBrand.forEach((brand, index) => {
+                if(brand.brandId){
+                    formData.append(`brands[${index}].brandId`, brand.brandId);
+                }
+                formData.append(`brands[${index}].name`, brand.name);
+                formData.append(`brands[${index}].brandCode`, brand.brandCode);
+
+                if (brand.image && brand.image.type.startsWith('image/')) {
+                    formData.append(`brands[${index}].image`, brand.image);
+                }
+
+                brand.series.forEach((series, seriesIndex) => {
+                    formData.append(`brands[${index}].series[${seriesIndex}].productSeriesId`, series.seriesId);
+                    formData.append(`brands[${index}].series[${seriesIndex}].name`, series.name);
+                    formData.append(`brands[${index}].series[${seriesIndex}].seriesCode`, series.code);
+
+                    if (series.image && series.image.type.startsWith('image/')) {
+                        formData.append(`brands[${index}].series[${seriesIndex}].image`, series.image);
+                    }
+                });
+            });
+
+
+            axios.post('/admin/category/saveOrUpdate', formData)
+                .then(response => {
+                    console.log('Thanhf coog')
+                    MyNotification.alertSucess("Thông báo", "Thêm doanh mục thành công!")
+                })
+                .catch(error => {
+                    console.log(error)
+                    MyNotification.alertError("Thông báo", "Thêm doanh mục không thành công!")
+                });
+
+        }
+        editCategory()
+        function editCategory() {
+            var categoryId = '[[${category.id}]]';
+
+            if (categoryId) {
+                axios.get('/admin/category/find/' + categoryId)
+                    .then(res => {
+                        res.data.brands.forEach((brand) => {
+                            addBrand(brand)
+                        })
+                    }).catch(error => {
+
+                    })
+            }
+        }
+
+        function deleteBrand(id) {
+            axios.delete('/admin/brand/delete/' + id)
+                .then(res => {
+                    MyNotification.alertSucess("Thông báo", "Xóa thương hiệu thành công!")
+                }).catch(error => {
+                    MyNotification.alertError("Thông báo", "Xóa thương hiệu thất bại!")
+                })
+        }
+
+        function deleteSeries(id) {
+            axios.delete('/admin/product-series-management/delete/' + id)
+                .then(res => {
+                    MyNotification.alertSucess("Thông báo", "Xóa series thành công!")
+                }).catch(error => {
+                    MyNotification.alertError("Thông báo", "Xóa series thất bại!")
+                })
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>

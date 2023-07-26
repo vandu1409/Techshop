@@ -1,0 +1,460 @@
+<nav class="navbar-vertical-nav d-none d-xl-block ">
+    <div class="navbar-vertical">
+        <div class="px-4 py-5">
+            <a href="https://freshcart.codescandy.com/index.html" class="navbar-brand">
+                <img src="/admin/images/logo-admin2.png" alt="" height="70px">
+            </a>
+        </div>
+        <div class="navbar-vertical-content flex-grow-1 simplebar-scrollable-y" data-simplebar="init">
+            <div class="simplebar-wrapper" style="margin: 0px;">
+                <div class="simplebar-height-auto-observer-wrapper">
+                    <div class="simplebar-height-auto-observer"></div>
+                </div>
+                <div class="simplebar-mask">
+                    <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                        <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                            aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                            <div class="simplebar-content" style="padding: 0px;">
+                                <ul class="navbar-nav flex-column" id="sideNavbar">
+
+                                    <li class="nav-item ">
+                                        <a class="nav-link "
+                                            href="/admin/home">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-house"></i></span>
+                                                <span class="nav-link-text">Trang chủ</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item mt-6 mb-3">
+                                        <span class="nav-label">Quản lí cửa hàng</span>
+                                    </li>
+                                 
+                               
+                                    <li class="nav-item">
+                                        <a class="nav-link collapsed " href="" data-bs-toggle="collapse"
+                                            data-bs-target="#navProduct" aria-expanded="false"
+                                            aria-controls="navProduct">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-bag"></i></span>
+                                                <span class="nav-link-text">Sản phẩm</span>
+                                            </div>
+                                        </a>
+                                        <div id="navProduct" class="collapse "
+                                            data-bs-parent="#sideNavbar">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                        href="/admin/product/list">
+                                                        Danh sách sản phẩm
+                                                    </a>
+                                                </li>
+                                                <!-- Nav item -->
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                    href="/admin/product/saveOrUpdate">
+                                                        Thêm sản phẩm
+
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link collapsed " href="" data-bs-toggle="collapse"
+                                            data-bs-target="#navCategory" aria-expanded="false"
+                                            aria-controls="navCategory">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-basket"></i></span>
+                                                <span class="nav-link-text">Doanh mục</span>
+                                            </div>
+                                        </a>
+                                        <div id="navCategory" class="collapse "
+                                            data-bs-parent="#sideNavbar">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                        href="/admin/category/list">
+                                                        Danh sách doanh mục
+                                                    </a>
+                                                </li>
+                                                <!-- Nav item -->
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                    href="/admin/category/saveOrUpdate">
+                                                        Thêm doanh mục
+
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link collapsed " href="" data-bs-toggle="collapse"
+                                            data-bs-target="#navDiscount" aria-expanded="false"
+                                            aria-controls="navDiscount">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-postcard"></i></span>
+                                                <span class="nav-link-text">Giảm giá</span>
+                                            </div>
+                                        </a>
+                                        <div id="navDiscount" class="collapse "
+                                            data-bs-parent="#sideNavbar">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                        href="/admin/voucher/list">
+                                                        Giảm giá đơn hàng
+                                                    </a>
+                                                </li>
+                                                <!-- Nav item -->
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                    href="/admin/discount/list">
+                                                        Giảm giá sản phẩm
+
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link collapsed " href="" data-bs-toggle="collapse"
+                                            data-bs-target="#navAttributesAndColor" aria-expanded="false"
+                                            aria-controls="navAttributesAndColor">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-phone"></i></span>
+                                                <span class="nav-link-text">Thuộc tính & màu sắc</span>
+                                            </div>
+                                        </a>
+                                        <div id="navAttributesAndColor" class="collapse "
+                                            data-bs-parent="#sideNavbar">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                        href="/admin/attributes/list">
+                                                        Quản lý thuộc tính
+                                                    </a>
+                                                </li>
+                                                <!-- Nav item -->
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                    href="/admin/color/list">
+                                                      Quản lý màu sắc
+
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link collapsed " href="" data-bs-toggle="collapse"
+                                            data-bs-target="#navMenu" aria-expanded="false"
+                                            aria-controls="navMenu">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-list-task"></i></span>
+                                                <span class="nav-link-text">Quản lý menu</span>
+                                            </div>
+                                        </a>
+                                        <div id="navMenu" class="collapse "
+                                            data-bs-parent="#sideNavbar">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                        href="/admin/menu/list">
+                                                      Danh sách menu
+                                                    </a>
+                                                </li>
+                                                <!-- Nav item -->
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                    href="/admin/menu/save">
+                                                      Thêm menu
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item ">
+                                        <a class="nav-link "
+                                            href="/admin/order/list">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-box2"></i></span>
+                                                <span class="nav-link-text">Đơn hàng</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link "
+                                            href="/admin/user/list">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-people"></i></span>
+                                                <span class="nav-link-text">Tài khoản</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link "
+                                            href="https://freshcart.codescandy.com/dashboard/reviews.html">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-star"></i></span>
+                                                <span class="nav-link-text">Reviews</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- Nav item -->
+                                   
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="simplebar-placeholder" style="width: 279px; height: 1066px;"></div>
+            </div>
+            <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+            </div>
+            <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                <div class="simplebar-scrollbar"
+                    style="height: 321px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar-vertical-nav offcanvas offcanvas-start navbar-offcanvac" tabindex="-1" id="offcanvasExample">
+    <div class="navbar-vertical">
+        <div class="px-4 py-5 d-flex justify-content-between align-items-center">
+            <a href="https://freshcart.codescandy.com/index.html" class="navbar-brand">
+                <img src="/admin/images/freshcart-logo.svg" alt="">
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="navbar-vertical-content flex-grow-1 simplebar-scrollable-y" data-simplebar="init">
+            <div class="simplebar-wrapper" style="margin: 0px;">
+                <div class="simplebar-height-auto-observer-wrapper">
+                    <div class="simplebar-height-auto-observer"></div>
+                </div>
+                <div class="simplebar-mask">
+                    <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                        <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                            aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                            <div class="simplebar-content" style="padding: 0px;">
+                                <ul class="navbar-nav flex-column">
+                                    <li class="nav-item ">
+                                        <a class="nav-link "
+                                            href="/admin">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-house"></i></span>
+                                                <span class="nav-link-text">Trang chủ</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item mt-6 mb-3">
+                                        <span class="nav-label">Quản lí cửa hàng</span>
+                                    </li>
+                                 
+                               
+                                    <li class="nav-item">
+                                        <a class="nav-link collapsed " href="" data-bs-toggle="collapse"
+                                            data-bs-target="#navProduct" aria-expanded="false"
+                                            aria-controls="navProduct">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-bag"></i></span>
+                                                <span class="nav-link-text">Sản phẩm</span>
+                                            </div>
+                                        </a>
+                                        <div id="navProduct" class="collapse "
+                                            data-bs-parent="#sideNavbar">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                        href="/admin/product/list">
+                                                        Danh sách sản phẩm
+                                                    </a>
+                                                </li>
+                                                <!-- Nav item -->
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                    href="/admin/product/saveOrUpdate">
+                                                        Thêm sản phẩm
+
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link collapsed " href="" data-bs-toggle="collapse"
+                                            data-bs-target="#navCategory" aria-expanded="false"
+                                            aria-controls="navCategory">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-basket"></i></span>
+                                                <span class="nav-link-text">Doanh mục</span>
+                                            </div>
+                                        </a>
+                                        <div id="navCategory" class="collapse "
+                                            data-bs-parent="#sideNavbar">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                        href="/admin/category/list">
+                                                        Danh sách doanh mục
+                                                    </a>
+                                                </li>
+                                                <!-- Nav item -->
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                    href="/admin/category/saveOrUpdate">
+                                                        Thêm doanh mục
+
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link collapsed " href="" data-bs-toggle="collapse"
+                                            data-bs-target="#navDiscount" aria-expanded="false"
+                                            aria-controls="navDiscount">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-postcard"></i></span>
+                                                <span class="nav-link-text">Giảm giá</span>
+                                            </div>
+                                        </a>
+                                        <div id="navDiscount" class="collapse "
+                                            data-bs-parent="#sideNavbar">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                        href="/admin/voucher/list">
+                                                        Giảm giá đơn hàng
+                                                    </a>
+                                                </li>
+                                                <!-- Nav item -->
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                    href="/admin/discount/list">
+                                                        Giảm giá sản phẩm
+
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link collapsed " href="" data-bs-toggle="collapse"
+                                            data-bs-target="#navAttributesAndColor" aria-expanded="false"
+                                            aria-controls="navAttributesAndColor">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"><i class="bi bi-phone"></i></span>
+                                                <span class="nav-link-text">Thuộc tính & màu sắc</span>
+                                            </div>
+                                        </a>
+                                        <div id="navAttributesAndColor" class="collapse "
+                                            data-bs-parent="#sideNavbar">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                        href="/admin/attributes/list">
+                                                        Quản lý thuộc tính
+                                                    </a>
+                                                </li>
+                                                <!-- Nav item -->
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                    href="/admin/color/list">
+                                                      Quản lý màu sắc
+
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link collapsed " href="" data-bs-toggle="collapse"
+                                            data-bs-target="#navMenu" aria-expanded="false"
+                                            aria-controls="navMenu">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-list-task"></i></span>
+                                                <span class="nav-link-text">Quản lý menu</span>
+                                            </div>
+                                        </a>
+                                        <div id="navMenu" class="collapse "
+                                            data-bs-parent="#sideNavbar">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                        href="/admin/menu/list">
+                                                      Danh sách menu
+                                                    </a>
+                                                </li>
+                                                <!-- Nav item -->
+                                                <li class="nav-item ">
+                                                    <a class="nav-link "
+                                                    href="/admin/menu/save">
+                                                      Thêm menu
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+
+                                    <li class="nav-item ">
+                                        <a class="nav-link "
+                                            href="/admin/order/list">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-box2"></i></span>
+                                                <span class="nav-link-text">Đơn hàng</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link "
+                                            href="https://freshcart.codescandy.com/dashboard/customers.html">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-people"></i></span>
+                                                <span class="nav-link-text">Customers</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link "
+                                            href="https://freshcart.codescandy.com/dashboard/reviews.html">
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"> <i class="bi bi-star"></i></span>
+                                                <span class="nav-link-text">Reviews</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="simplebar-placeholder" style="width: 279px; height: 1014px;"></div>
+            </div>
+            <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+            </div>
+            <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                <div class="simplebar-scrollbar"
+                    style="height: 337px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
+            </div>
+        </div>
+    </div>
+
+</nav>

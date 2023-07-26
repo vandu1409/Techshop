@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://freshcart.codescandy.com/dashboard/order-list.html -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Required meta tags -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta content="Codescandy" name="author">
+  <title>Order List Dashboard - FreshCart </title>
+  <!-- Favicon icon-->
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://freshcart.codescandy.com/assets/images/favicon/favicon.ico">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Libs CSS -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="/admin/css/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="/admin/css/feather-icons.css" rel="stylesheet">
+  <link href="/admin/css/simplebar.min.css" rel="stylesheet">
+
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="/admin/css/theme.min.css">
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="/admin/js/app.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M8S4MT3EYG');
+  </script>
+
+
+</head>
+
+<body>
+
+  <!-- main -->
+  <nav class="navbar navbar-expand-lg navbar-glass">
+    <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <div class="d-flex align-items-center">
+
+          <a class="text-inherit d-block d-xl-none me-4" data-bs-toggle="offcanvas"
+            href="https://freshcart.codescandy.com/dashboard/order-list.html#offcanvasExample" role="button"
+            aria-controls="offcanvasExample">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+              class="bi bi-text-indent-right" viewBox="0 0 16 16">
+              <path
+                d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm10.646 2.146a.5.5 0 0 1 .708.708L11.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zM2 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z">
+              </path>
+            </svg>
+          </a>
+
+          <form role="search">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+
+          </form>
+        </div>
+        <div>
+          <ul class="list-unstyled d-flex align-items-center mb-0 ms-5 ms-lg-0">
+
+            <li class="dropdown-center ">
+              <a class="position-relative btn-icon btn-ghost-secondary btn rounded-circle"
+                href="https://freshcart.codescandy.com/dashboard/order-list.html#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-bell fs-5"></i>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 ms-n2">
+                  2
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg p-0 border-0 ">
+                <div class="border-bottom p-5 d-flex
+              justify-content-between align-items-center">
+                  <div>
+                    <h5 class="mb-1">Notifications</h5>
+                    <p class="mb-0 small">You have 2 unread messages</p>
+                  </div>
+                  <a href="https://freshcart.codescandy.com/dashboard/order-list.html#!" class="text-muted">
+                  </a><a href="https://freshcart.codescandy.com/dashboard/order-list.html#"
+                    class="btn btn-ghost-secondary btn-icon rounded-circle" data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" data-bs-title="Mark all as read">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+                      class="bi bi-check2-all text-success" viewBox="0 0 16 16">
+                      <path
+                        d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z">
+                      </path>
+                      <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z"></path>
+                    </svg>
+                  </a>
+
+                </div>
+                <div data-simplebar="init" style="height: 250px;">
+                  <div class="simplebar-wrapper" style="margin: 0px;">
+                    <div class="simplebar-height-auto-observer-wrapper">
+                      <div class="simplebar-height-auto-observer"></div>
+                    </div>
+                    <div class="simplebar-mask">
+                      <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                        <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                          aria-label="scrollable content" style="height: auto; overflow: hidden;">
+                          <div class="simplebar-content" style="padding: 0px;">
+                            <!-- List group -->
+                            <ul class="list-group list-group-flush notification-list-scroll fs-6">
+                              <!-- List group item -->
+                              <li class="list-group-item px-5 py-4 list-group-item-action active">
+                                <a href="https://freshcart.codescandy.com/dashboard/order-list.html#!"
+                                  class="text-muted">
+                                  <div class="d-flex">
+                                    <img src="/admin/images/avatar-1.jpg" alt=""
+                                      class="avatar avatar-md rounded-circle ">
+                                    <div class="ms-4">
+                                      <p class="mb-1">
+                                        <span class="text-dark">Your order is placed</span> waiting for shipping
+                                      </p>
+                                      <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                          fill="currentColor" class="bi bi-clock text-muted" viewBox="0 0 16 16">
+                                          <path
+                                            d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                          </path>
+                                          <path
+                                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                          </path>
+                                        </svg><small class="ms-2">1 minute ago</small></span>
+                                    </div>
+                                  </div>
+                                </a>
+
+
+
+                              </li>
+                              <li class="list-group-item  px-5 py-4 list-group-item-action">
+                                <a href="https://freshcart.codescandy.com/dashboard/order-list.html#!"
+                                  class="text-muted">
+                                  <div class="d-flex">
+                                    <img src="/admin/images/avatar-5.jpg" alt=""
+                                      class="avatar avatar-md rounded-circle ">
+                                    <div class="ms-4">
+                                      <p class="mb-1">
+                                        <span class="text-dark">Jitu Chauhan </span> answered to your pending order list
+                                        with notes
+                                      </p>
+                                      <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                          fill="currentColor" class="bi bi-clock text-muted" viewBox="0 0 16 16">
+                                          <path
+                                            d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                          </path>
+                                          <path
+                                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                          </path>
+                                        </svg><small class="ms-2">2 days ago</small></span>
+                                    </div>
+                                  </div>
+                                </a>
+
+
+
+                              </li>
+                              <li class="list-group-item px-5 py-4 list-group-item-action">
+                                <a href="https://freshcart.codescandy.com/dashboard/order-list.html#!"
+                                  class="text-muted">
+                                  <div class="d-flex">
+                                    <img src="/admin/images/avatar-2.jpg" alt=""
+                                      class="avatar avatar-md rounded-circle ">
+                                    <div class="ms-4">
+                                      <p class="mb-1">
+                                        <span class="text-dark">You have new messages</span> 2 unread messages
+                                      </p>
+                                      <span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                          fill="currentColor" class="bi bi-clock text-muted" viewBox="0 0 16 16">
+                                          <path
+                                            d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                          </path>
+                                          <path
+                                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                          </path>
+                                        </svg><small class="ms-2">3 days ago</small></span>
+                                    </div>
+                                  </div>
+                                </a>
+
+
+
+                              </li>
+
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div>
+                  </div>
+                  <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                    <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                  </div>
+                  <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                    <div class="simplebar-scrollbar" style="height: 0px; display: none;"></div>
+                  </div>
+                </div>
+                <div class="border-top px-5 py-4 text-center">
+                  <a href="https://freshcart.codescandy.com/dashboard/order-list.html#!" class=" ">
+                    View All
+                  </a>
+                </div>
+              </div>
+
+            </li>
+            <li class="dropdown ms-4">
+              <a href="https://freshcart.codescandy.com/dashboard/order-list.html#" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="/admin/images/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle">
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-end p-0">
+
+
+
+                <div class="lh-1 px-5 py-4 border-bottom">
+                  <h5 class="mb-1 h6">FreshCart Admin</h5>
+                  <small>admindemo@email.com</small>
+                </div>
+
+
+
+                <ul class="list-unstyled px-2 py-3">
+
+                  <li>
+                    <a class="dropdown-item" href="https://freshcart.codescandy.com/dashboard/order-list.html#!">
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="https://freshcart.codescandy.com/dashboard/order-list.html#!">
+                      Profile
+                    </a>
+
+
+                  </li>
+
+
+                  <li>
+                    <a class="dropdown-item" href="https://freshcart.codescandy.com/dashboard/order-list.html#!">
+
+                      Settings
+                    </a>
+                  </li>
+
+                </ul>
+                <div class="border-top px-5 py-3">
+
+                  <a href="https://freshcart.codescandy.com/dashboard/order-list.html#">Log Out</a>
+                </div>
+
+
+
+              </div>
+
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </nav>
+  <div class="main-wrapper">
+    <!-- navbar vertical -->
+    <th:block  th:insert="~{/admin/menu}"></th:block>
+    <!-- main wrapper -->
+    <main class="main-content-wrapper" id="myapp">
+      <div class="container">
+        <!-- row -->
+        <div class="row mb-8">
+          <div class="col-md-12">
+            <!-- page header -->
+            <div>
+              <h2>Order List</h2>
+              <!-- breacrumb -->
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item"><a
+                      href="https://freshcart.codescandy.com/dashboard/order-list.html#">Dashboard</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Order List</li>
+                </ol>
+              </nav>
+
+            </div>
+          </div>
+        </div>
+        <!-- row -->
+        <div class="row">
+          <div class="col-xl-12 col-12 mb-5">
+            <!-- card -->
+            <div class="card h-100 card-lg">
+              <div class=" p-6 ">
+                <div class="row justify-content-between">
+                  <div class="col-md-4 col-12 mb-2 mb-md-0">
+                    <!-- form -->
+                    <form class="d-flex" role="search">
+                      <div class="d-flex text-center">
+                        <div class="mr-2">
+                         <b >Từ</b> 
+                        </div>
+                         <input type="date" name="" id="" class="form-control" style="margin: 0px 10px;" v-model="startDate"> 
+                         <b>Đến </b> 
+                         <input type="date" name="" id="" class="form-control"  style="margin: 0px 10px;" v-model="endDate">
+                          <button class="btn btn-primary" type="button" @click="goToPage(1)">Lọc</button>
+                       </div>
+
+                    </form>
+                  </div>
+                  <div class="col-lg-4 d-flex">
+                    <!-- select -->
+                    <select v-model="selectedSize" @change="setSize(selectedSize)" class="form-control ml-r" style="margin-right: 10px;">
+                      <option v-for="size in sizes" :value="size">{{ size }}</option>
+                    </select>
+
+                    <select class="form-select" @change="goToPage(1)" v-model="status">
+                      <option v-for="status in listStatus" :value="status.id">{{ status.name }}
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- card body -->
+              <div class="card-body p-0">
+                <!-- table responsive -->
+                <div class="table-responsive">
+                  <table class="table table-centered table-hover text-nowrap table-borderless mb-0 table-with-checkbox">
+                    <thead class="bg-light">
+                      <tr>
+
+                        <!-- <th>Mã HD</th> -->
+                        <th>Ngày đặt</th>
+                        <th>Ngày giao</th>
+                        <th>Người đặt</th>
+                        <th>Tổng tiển</th>
+                        <th>Giảm giá</th>
+                        <th>Ghi chú</th>
+                        <th>Trạng thái</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="item in list">
+
+                        <!-- <td>{{item.orderId}}</td> -->
+                        <td>{{item.createDate |formatDate('DD/MM/yyyy - HH:mm')}}</td>
+                        <td>{{item.deliveryDate |formatDate('DD/MM/yyyy - HH:mm')}}</td>
+                        <td>{{item.user.fullname}}</td>
+                        <td>{{item.totalPrice |customCurrency}}</td>
+                        <td>{{item.discount |customCurrency }}</td>
+                        <td>{{item.notes}}</td>
+                        <td> <span :class="getStatusClass(item.status)">{{ getStatusNameText(item.status) }}</span></td>
+
+                        <td>
+                          <div class="dropdown">
+                            <a href="" class="text-reset" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="bi bi-three-dots-vertical"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" :href="'/admin/order/details/'+item.orderId"><i class="bi bi-exclamation-circle me-3"></i>Chi
+                                  tiết</a></li>
+
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+
+
+
+
+
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="border-top d-flex justify-content-between align-items-center p-6">
+                  <div class="" style="max-width: 150px;">
+                   
+                  </div>
+                <nav class="mt-2 mt-md-0">
+                  <ul class="pagination">
+                    <li class="page-item "><a @click="prev()" class="page-link">Previous</a></li>
+                    <li class="page-item" v-for="pageNumber in getPaginationArray()"
+                      :class="{ 'active': pageNumber == currentPage }">
+                      <a class="page-link" @click="goToPage(pageNumber)">{{ pageNumber }}</a>
+                    </li>
+
+                    <li class="page-item"><a class="page-link" @click="next()">Next</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"
+    integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Libs JS -->
+  <script src="/admin/js/jquery.min.js"></script>
+  <script src="/admin/js/bootstrap.bundle.min.js"></script>
+  <script src="/admin/js/simplebar.min.js"></script>
+
+  <!-- Theme JS -->
+  <script src="/admin/js/theme.min.js"></script>
+
+  <script>
+
+
+    var app = new Vue({
+      el: '#myapp',
+      data: {
+        list: [],
+        currentPage: 1,
+        pageSize: 1,
+        status: 0,
+        totalPages: 5,
+        listStatus: [
+          { id: 0, name: 'Tất cả' },
+          { id: 1, name: 'Chờ xác nhận' },
+          { id: 2, name: 'Đang giao' },
+          { id: 3, name: 'Đã giao' },
+          { id: 4, name: 'Đã hủy' }
+        ],
+        startDate:null,
+        endDate:null
+
+        // keyword: ''
+      },
+      filters: {
+        customCurrency: function (input, symbol) {
+          if (!input) return '';
+
+          var sign = (symbol !== undefined) ? symbol : 'đ';
+
+          input = input.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,");
+
+          return input + ' ' + sign;
+        }, formatDate: function (value, format) {
+          if (!value) return 'Chưa có';
+
+          // Sử dụng Moment.js để định dạng ngày
+          return moment(value).format(format);
+        }
+      },
+      methods: {
+
+        getStatusClass(status) {
+          if (status === 'PENDING') {
+            return 'badge bg-light-warning text-dark-warning';
+          } else if (status === 'CANELED') {
+            return 'badge bg-light-danger text-dark-danger';
+          } else if (status === 'DELIVERED') {
+            return 'badge bg-light-primary text-dark-primary';
+          } else {
+            return 'badge bg-light-warning text-dark-warning'
+          }
+        },
+
+        getStatusName(status) {
+
+          if (status === 'PENDING') {
+            return 'Xác nhận đơn hàng';
+          } else if (status === 'SHIPING') {
+            return 'Xác nhận đã giao';
+          }
+        },
+
+        getStatusNameText(status) {
+          if (status === 'PENDING') {
+            return 'Chờ xác nhận';
+          } else if (status === 'CANELED') {
+            return 'Đã hủy';
+          } else if (status === 'DELIVERED') {
+            return 'Đã giao';
+          } else {
+            return 'Đang giao hàng'
+          }
+        },
+
+
+        goToPage(pageNumber) {
+          // Cập nhật biến currentPage
+          this.currentPage = pageNumber;
+          var self = this;
+
+          var url = '';
+
+          // if()
+
+          axios.get("/admin/order/getAll?page=" + self.currentPage + "&size=" + self.pageSize + "&status=" + self.status+"&startDate="+self.startDate+"&endDate="+self.endDate)
+            .then(function (response) {
+              self.list = response.data.content;
+              self.totalPages = response.data.totalPages;
+
+              var params = new URLSearchParams(window.location.search);
+              params.set('page', self.currentPage);
+              params.set('size', self.pageSize);
+              params.set('status', self.status)
+              window.history.pushState({}, '', '?' + params.toString());
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+        },
+
+        setSize: function (size) {
+          // Cập nhật biến currentPage
+          this.pageSize = size;
+
+          this.goToPage(1)
+
+        },
+
+        next() {
+
+          if (this.currentPage < this.totalPages) {
+            this.currentPage++
+          }
+
+          this.goToPage(this.currentPage)
+        },
+        prev() {
+
+          if (this.currentPage > 1) {
+            this.currentPage--
+          }
+
+          this.goToPage(this.currentPage)
+        },
+
+
+        getPaginationArray: function () {
+          let startPage = Math.max(1, this.currentPage - 2);
+          let endPage = Math.min(startPage + 4, this.totalPages);
+
+          let arr = [];
+          for (let i = startPage; i <= endPage; i++) {
+            arr.push(i);
+          }
+          return arr;
+        },
+
+      },
+      created() {
+
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        this.currentPage = parseInt(urlParams.get('page')) || 1;
+        this.pageSize = parseInt(urlParams.get('size')) || 3;
+        this.status = parseInt(urlParams.get('status')) || 0;
+
+        this.goToPage(this.currentPage)
+
+
+        this.sizes = [1, 3, 6, 9, 12, 15];
+
+        this.selectedSize = parseInt(this.pageSize)
+
+
+
+      }
+    });
+
+
+
+  </script>
+
+</body>
+
+</html>
