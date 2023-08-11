@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
-
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.vandu.service.UserService;
 
@@ -23,8 +23,8 @@ import com.vandu.service.UserService;
 @EnableWebSecurity
 public class SecurityConfig {
 
-	@Autowired
-	private AuthenticationSuccessHandler authenticationSuccessHandler;
+//	@Autowired
+//	private AuthenticationSuccessHandler authenticationSuccessHandler;
 	
 //	@Autowired
 //	private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
@@ -42,15 +42,15 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http.csrf().disable().authorizeHttpRequests()
-
-				.requestMatchers("/admin/**","dang-ky").permitAll().
+				.requestMatchers("/admin/user/**").hasRole("SUPERADMIN")
+				.requestMatchers("/admin/**").hasAnyRole("ADMIN","SUPERADMIN").		
 //				requestMatchers("/dtdd/**").permitAll().
 				requestMatchers("/gio-hang","/profile","danh-sach-yeu-thich").authenticated().requestMatchers("thanh-toan").authenticated()
 				.anyRequest()
 				.permitAll().and().formLogin().loginPage("/login").loginProcessingUrl("/do-login").failureHandler(new LoginFalidHanlder())
-				.successHandler(new CustomSuccessHandler()).permitAll().and().logout().logoutUrl("/logout")
+				.successHandler(customSuccessHandler).permitAll().and().logout().logoutUrl("/logout")
 				.logoutSuccessHandler(logoutSuccessHandler()).and().oauth2Login().loginPage("/login")
-				.successHandler(authenticationSuccessHandler).permitAll().and().rememberMe().key("uniqueAndSecret")
+				.successHandler(customSuccessHandler).permitAll().and().rememberMe().key("uniqueAndSecret")
 				.rememberMeParameter("remember-me")
 				.tokenValiditySeconds(86400)
 				.and()

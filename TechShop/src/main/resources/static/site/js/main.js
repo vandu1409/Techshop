@@ -26,7 +26,7 @@ function renderLayout(){
 			document.querySelector('.countviewed').innerHTML = last_viewd_pro_array.length;
 		}
 	}
-	var placeholderText = ['Bạn muốn tìm gì?','Tivi', 'Tủ lạnh', 'Điều hòa', 'Loa','Tủ Đông','Lọc nước','Máy in','...'];
+	var placeholderText = ['Bạn muốn tìm gì?','Điện thoại', 'Iphone', 'Sam sung', 'Oppo','Realme','...'];
 	$('.search-auto').placeholderTypewriter({text: placeholderText});
 	awe_backtotop();
 	awe_category();

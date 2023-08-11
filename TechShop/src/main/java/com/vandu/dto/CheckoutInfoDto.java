@@ -13,4 +13,6 @@ public class CheckoutInfoDto {
 	private String notes;
 	
 	private int paymentMethod;
+	
+	private boolean saveOrderToDatabase;
 }

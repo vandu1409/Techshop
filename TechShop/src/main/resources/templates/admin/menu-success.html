@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://freshcart.codescandy.com/dashboard/categories.html -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Codescandy" name="author">
+    <title>Categories Dashboard - FreshCart </title>
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://freshcart.codescandy.com/assets/images/favicon/favicon.ico">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Libs CSS -->
+    <link href="/admin/css/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="/admin/css/feather-icons.css" rel="stylesheet">
+    <link href="/admin/css/simplebar.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Theme CSS -->
+    <link href="/site/css/notify.scss.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="/admin/css/theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.1/jquery.toast.min.css"
+        integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <link rel="stylesheet" href="/admin/css/modal.css">
+    <script async="" src="/admin/js/app.js"></script>
+    <script src="/admin/js/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-M8S4MT3EYG');
+    </script>
+
+    <style data-jss="" data-meta="MuiDialog">
+        @media print {
+            .MuiDialog-root {
+                position: absolute !important;
+            }
+        }
+
+        .MuiDialog-scrollPaper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .MuiDialog-scrollBody {
+            overflow-x: hidden;
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        .MuiDialog-scrollBody:after {
+            width: 0;
+            height: 100%;
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .MuiDialog-container {
+            height: 100%;
+            outline: 0;
+        }
+
+        @media print {
+            .MuiDialog-container {
+                height: auto;
+            }
+        }
+
+        .MuiDialog-paper {
+            margin: 32px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        @media print {
+            .MuiDialog-paper {
+                box-shadow: none;
+                overflow-y: visible;
+            }
+        }
+
+        .MuiDialog-paperScrollPaper {
+            display: flex;
+            max-height: calc(100% - 64px);
+            flex-direction: column;
+        }
+
+        .MuiDialog-paperScrollBody {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .MuiDialog-paperWidthFalse {
+            max-width: calc(100% - 64px);
+        }
+
+        .MuiDialog-paperWidthXs {
+            max-width: 444px;
+        }
+
+        @media (max-width:507.95px) {
+            .MuiDialog-paperWidthXs.MuiDialog-paperScrollBody {
+                max-width: calc(100% - 64px);
+            }
+        }
+
+        .MuiDialog-paperWidthSm {
+            max-width: 600px;
+        }
+
+        @media (max-width:663.95px) {
+            .MuiDialog-paperWidthSm.MuiDialog-paperScrollBody {
+                max-width: calc(100% - 64px);
+            }
+        }
+
+        .MuiDialog-paperWidthMd {
+            max-width: 960px;
+        }
+
+        @media (max-width:1023.95px) {
+            .MuiDialog-paperWidthMd.MuiDialog-paperScrollBody {
+                max-width: calc(100% - 64px);
+            }
+        }
+
+        .MuiDialog-paperWidthLg {
+            max-width: 1280px;
+        }
+
+        @media (max-width:1343.95px) {
+            .MuiDialog-paperWidthLg.MuiDialog-paperScrollBody {
+                max-width: calc(100% - 64px);
+            }
+        }
+
+        .MuiDialog-paperWidthXl {
+            max-width: 1920px;
+        }
+
+        @media (max-width:1983.95px) {
+            .MuiDialog-paperWidthXl.MuiDialog-paperScrollBody {
+                max-width: calc(100% - 64px);
+            }
+        }
+
+        .MuiDialog-paperFullWidth {
+            width: calc(100% - 64px);
+        }
+
+        .MuiDialog-paperFullScreen {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            max-width: 100%;
+            max-height: none;
+            border-radius: 0;
+        }
+
+        .MuiDialog-paperFullScreen.MuiDialog-paperScrollBody {
+            margin: 0;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- main wrapper -->
+    <nav class="navbar navbar-expand-lg navbar-glass">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="d-flex align-items-center">
+
+                    <a class="text-inherit d-block d-xl-none me-4" data-bs-toggle="offcanvas"
+                        href="https://freshcart.codescandy.com/dashboard/categories.html#offcanvasExample" role="button"
+                        aria-controls="offcanvasExample">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-text-indent-right" viewBox="0 0 16 16">
+                            <path
+                                d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm10.646 2.146a.5.5 0 0 1 .708.708L11.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zM2 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z">
+                            </path>
+                        </svg>
+                    </a>
+
+                    <form role="search">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+
+                    </form>
+                </div>
+                <div>
+                    <ul class="list-unstyled d-flex align-items-center mb-0 ms-5 ms-lg-0">
+
+                        <li class="dropdown-center ">
+                            <a class="position-relative btn-icon btn-ghost-secondary btn rounded-circle"
+                                href="https://freshcart.codescandy.com/dashboard/categories.html#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-bell fs-5"></i>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 ms-n2">
+                                    2
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg p-0 border-0 ">
+                                <div class="border-bottom p-5 d-flex
+              justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="mb-1">Notifications</h5>
+                                        <p class="mb-0 small">You have 2 unread messages</p>
+                                    </div>
+                                    <a href="https://freshcart.codescandy.com/dashboard/categories.html#!"
+                                        class="text-muted">
+                                    </a><a href="https://freshcart.codescandy.com/dashboard/categories.html#"
+                                        class="btn btn-ghost-secondary btn-icon rounded-circle" data-bs-toggle="tooltip"
+                                        data-bs-placement="bottom" data-bs-title="Mark all as read">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                            fill="currentColor" class="bi bi-check2-all text-success"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0l7-7zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0z">
+                                            </path>
+                                            <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708z">
+                                            </path>
+                                        </svg>
+                                    </a>
+
+                                </div>
+                                <div data-simplebar="init" style="height: 250px;">
+                                    <div class="simplebar-wrapper" style="margin: 0px;">
+                                        <div class="simplebar-height-auto-observer-wrapper">
+                                            <div class="simplebar-height-auto-observer"></div>
+                                        </div>
+                                        <div class="simplebar-mask">
+                                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                                <div class="simplebar-content-wrapper" tabindex="0" role="region"
+                                                    aria-label="scrollable content"
+                                                    style="height: auto; overflow: hidden;">
+                                                    <div class="simplebar-content" style="padding: 0px;">
+                                                        <!-- List group -->
+                                                        <ul
+                                                            class="list-group list-group-flush notification-list-scroll fs-6">
+                                                            <!-- List group item -->
+                                                            <li
+                                                                class="list-group-item px-5 py-4 list-group-item-action active">
+                                                                <a href="https://freshcart.codescandy.com/dashboard/categories.html#!"
+                                                                    class="text-muted">
+                                                                    <div class="d-flex">
+                                                                        <img src="/admin/images/avatar-1.jpg" alt=""
+                                                                            class="avatar avatar-md rounded-circle ">
+                                                                        <div class="ms-4">
+                                                                            <p class="mb-1">
+                                                                                <span class="text-dark">Your order is
+                                                                                    placed</span> waiting for shipping
+                                                                            </p>
+                                                                            <span><svg
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="12" height="12"
+                                                                                    fill="currentColor"
+                                                                                    class="bi bi-clock text-muted"
+                                                                                    viewBox="0 0 16 16">
+                                                                                    <path
+                                                                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                                                                    </path>
+                                                                                </svg><small class="ms-2">1 minute
+                                                                                    ago</small></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+
+
+                                                            </li>
+                                                            <li
+                                                                class="list-group-item  px-5 py-4 list-group-item-action">
+                                                                <a href="https://freshcart.codescandy.com/dashboard/categories.html#!"
+                                                                    class="text-muted">
+                                                                    <div class="d-flex">
+                                                                        <img src="/admin/images/avatar-5.jpg" alt=""
+                                                                            class="avatar avatar-md rounded-circle ">
+                                                                        <div class="ms-4">
+                                                                            <p class="mb-1">
+                                                                                <span class="text-dark">Jitu Chauhan
+                                                                                </span> answered to your pending order
+                                                                                list
+                                                                                with notes
+                                                                            </p>
+                                                                            <span><svg
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="12" height="12"
+                                                                                    fill="currentColor"
+                                                                                    class="bi bi-clock text-muted"
+                                                                                    viewBox="0 0 16 16">
+                                                                                    <path
+                                                                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                                                                    </path>
+                                                                                </svg><small class="ms-2">2 days
+                                                                                    ago</small></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+
+
+                                                            </li>
+                                                            <li
+                                                                class="list-group-item px-5 py-4 list-group-item-action">
+                                                                <a href="https://freshcart.codescandy.com/dashboard/categories.html#!"
+                                                                    class="text-muted">
+                                                                    <div class="d-flex">
+                                                                        <img src="/admin/images/avatar-2.jpg" alt=""
+                                                                            class="avatar avatar-md rounded-circle ">
+                                                                        <div class="ms-4">
+                                                                            <p class="mb-1">
+                                                                                <span class="text-dark">You have new
+                                                                                    messages</span> 2 unread messages
+                                                                            </p>
+                                                                            <span><svg
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    width="12" height="12"
+                                                                                    fill="currentColor"
+                                                                                    class="bi bi-clock text-muted"
+                                                                                    viewBox="0 0 16 16">
+                                                                                    <path
+                                                                                        d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z">
+                                                                                    </path>
+                                                                                </svg><small class="ms-2">3 days
+                                                                                    ago</small></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                                        <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                                    </div>
+                                    <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                                        <div class="simplebar-scrollbar" style="height: 0px; display: none;"></div>
+                                    </div>
+                                </div>
+                                <div class="border-top px-5 py-4 text-center">
+                                    <a href="https://freshcart.codescandy.com/dashboard/categories.html#!" class=" ">
+                                        View All
+                                    </a>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li class="dropdown ms-4">
+                            <a href="https://freshcart.codescandy.com/dashboard/categories.html#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/admin/images/avatar-1.jpg" alt="" class="avatar avatar-md rounded-circle">
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end p-0">
+
+
+
+                                <div class="lh-1 px-5 py-4 border-bottom">
+                                    <h5 class="mb-1 h6">FreshCart Admin</h5>
+                                    <small>admindemo@email.com</small>
+                                </div>
+
+
+
+                                <ul class="list-unstyled px-2 py-3">
+
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="https://freshcart.codescandy.com/dashboard/categories.html#!">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="https://freshcart.codescandy.com/dashboard/categories.html#!">
+                                            Profile
+                                        </a>
+
+
+                                    </li>
+
+
+                                    <li>
+                                        <a class="dropdown-item"
+                                            href="https://freshcart.codescandy.com/dashboard/categories.html#!">
+
+                                            Settings
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <div class="border-top px-5 py-3">
+
+                                    <a href="https://freshcart.codescandy.com/dashboard/categories.html#">Log Out</a>
+                                </div>
+
+
+
+                            </div>
+
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-wrapper" id="myapp">
+        <!-- navbar vertical -->
+
+        <th:block th:insert="~{/admin/menu}"></th:block>
+
+        <!-- main -->
+        <main class="main-content-wrapper">
+            <div class="container">
+                <div class="card p-10 mt-10 rounded-lg" style="border-radius: 30px;">
+                    <div class="text-center">
+                        <img src="/admin/images/success-icon.png" height="175px" width="175px" alt="">
+                    </div>
+                    <div class="text-center mt-4">
+                       <h3><b>Hoàn tất! Menu đã được lưu vào hệ thống</b></h3>
+                       <a href="/admin/menu/save" class="btn btn-outline-primary m-4">Thêm menu mới</a>
+                       <a href="/admin/menu/list" class="btn btn-outline-primary m-4">Danh sách menu</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </main>
+    </div>
+
+
+    <!-- Libs JS -->
+    <script src="/site/js/notify.js" async=""></script>
+    <script src="/site/js/alert.js"></script>
+    <script src="/admin/js/bootstrap.bundle.min.js"></script>
+    <script src="/admin/js/simplebar.min.js"></script>
+
+    <!-- Theme JS -->
+
+    <script src="/admin/js/theme.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.1/jquery.toast.min.js"
+        integrity="sha512-zv5L1hY+PMayrX2l0ojsUqem6AHpdSIVyDJBlDQH/fMLpH1JgaxPTjpum1b1AlLHdARVonrpomps+GgR0oN3MA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.1/jquery.toast.js"
+        integrity="sha512-CwEY0URPo9ZtMMCpiW/mUx4iW2AseRWTbCEJZNoVr18gbFVIGmwztqu50C0LWwUYpA7PRgBXWard2HO4uwZDfA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+</body>
+
+</html>

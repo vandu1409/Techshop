@@ -17,6 +17,23 @@ var MyNotification = {
         position: 'right top'
       });
     },
+    alertSucessWait: function(title, text,check) {
+      new Notify({
+        status: 'success',
+        title: title,
+        text: text,
+        effect: 'slide',
+        speed: 300,
+        showIcon: true,
+        showCloseButton: true,
+        autoclose: check,
+        autotimeout: 2000,
+        gap: 20,
+        distance: 20,
+        type: 1,
+        position: 'right top'
+      });
+    },
     alertError: function(title, text) {
       new Notify({
         status: 'error',

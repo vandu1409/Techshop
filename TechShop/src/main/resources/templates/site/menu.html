@@ -4,12 +4,12 @@
 			<span class="menu_bar align-center d-block d-lg-none" title="Menu">
 				<img src="/site/images/bars.png" width="32" height="32" alt="OH! Điện máy">
 			</span>
-			<a href="https://oh-dien-may.mysapo.net/" class="logo ">
+			<a href="/" class="logo ">
 				<img src="/site/images/logo-site2.png" width="170" height="52" alt="OH! Điện máy">
 			</a>
 			<a class="head-order head-map border-radius-4" href="https://oh-dien-may.mysapo.net/he-thong-cua-hang"
 				title="Hệ thống cửa hàng">Hệ thống cửa hàng<br><b>40 cửa hàng</b></a>
-			<form action="" class="input-group search-form" role="search">
+			<form action="/tim-kiem" class="input-group search-form" role="search">
 				<input type="text" aria-label="Tìm sản phẩm" name="query" value="" autocomplete="off"
 					class="search-auto search-auto margin-0 position-relative border-radius-4" required=""
 					placeholder="Lọc nước" oninput="search(this.value)">
@@ -25,8 +25,7 @@
 			<a class="text-ico hotline border-radius-4 margin-left-40" href="tel:0374776605" title="Hotline"><img
 					src="/site/images/phone.svg" alt="Hotline">Hotline<span class="d-block">0374776605</span></a>
 			<div class="account position-relative">
-				<a href="/profile" class="text-ico account-head d-block"
-					title="Tài khoản">
+				<a href="/profile" class="text-ico account-head d-block" title="Tài khoản">
 					<img src="/site/images/user.svg" alt="Tài khoản">
 					Tài khoản
 					<span class="d-block" th:if="${session.loggedUser !=null }">
@@ -35,7 +34,7 @@
 					<span class="d-block" th:if="${session.loggedUser == null}">
 						Hello, Khách
 					</span>
-					
+
 
 				</a>
 				<ul class="position-absolute">
@@ -43,10 +42,16 @@
 					<li><a href="/logout" title="Đăng nhập" th:if="${session.loggedUser !=null }">Đăng xuất</a></li>
 					<li><a href="/danh-sach-yeu-thich" class="wishlist_header" title="Sản phẩm yêu thích">Yêu thích </a>
 					</li>
-					
+					<th:block th:if="${session.loggedUser != null}">
+						<li><a href="/admin/home"
+								th:if="${#strings.contains(#authentication.principal.authorities,'ADMIN') || #strings.contains(#authentication.principal.authorities,'SUPERADMIN') } "
+								class="wishlist_header">Trang quản lý </a>
+
+						</li>
+					</th:block>
 				</ul>
 			</div>
-			<a class="text-ico hotline border-radius-4 margin-left-40" href="/san-pham-yeu-thich" title="Hotline"><img
+			<a class="text-ico hotline border-radius-4 margin-left-40" href="/danh-sach-yeu-thich"><img
 					src="/site/images/heart-icon.png" alt="Hotline">Yêu thích<span class="d-block">Xem chi
 					tiết</span></a>
 			<a class="text-ico cart-head position-relative" href="/gio-hang" title="Giỏ hàng">
@@ -62,15 +67,16 @@
 				<ul class="item_big d-lg-flex justify-content-center align-center">
 
 					<li class="nav-item has-child" th:each="item : ${listMenu}">
-					
-						<a class="a-img caret-down" th:href="@{${item.url}}"
-							style="transform: translateY(0%);">	<img th:src="@{'/phonestore/images/'+${item.image}}" alt="" height="25px" width="25px"> [[${item.name}]]<i
-								class="fa fa-angle-down" th:if="${item.subMenus.size > 0}"></i></a>
+
+						<a class="a-img caret-down" th:href="@{${item.url}}" style="transform: translateY(0%);"> <img
+								th:src="@{'/phonestore/images/'+${item.image}}" alt="" height="25px" width="25px">
+							[[${item.name}]]<i class="fa fa-angle-down" th:if="${item.subMenus.size > 0}"></i></a>
 
 						<i class="fa fa-angle-down"></i>
 
 						<ul class="item_small">
-							<li th:each="submenu : ${item.subMenus}"><a th:href="@{${submenu.url}}" th:text="${submenu.name}"></a></li>
+							<li th:each="submenu : ${item.subMenus}"><a th:href="@{${submenu.url}}"
+									th:text="${submenu.name}"></a></li>
 
 
 						</ul>

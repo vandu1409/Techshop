@@ -17,7 +17,7 @@ import com.vandu.model.User;
 
 import jakarta.transaction.Transactional;
 
-
+@Service
 public interface UserService {
 
 	<S extends User> List<S> saveAll(Iterable<S> entities);

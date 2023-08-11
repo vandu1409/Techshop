@@ -2,6 +2,7 @@ package com.vandu.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import com.vandu.enums.AuthenticationType;
 import com.vandu.service.UserService;
@@ -44,5 +46,12 @@ public class ApplicationConfig {
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
 		return authenticationConfiguration.getAuthenticationManager();
 	}
+	
+//	@Bean
+//	public DispatcherServlet dispatcherServlet () {
+//	    DispatcherServlet ds = new DispatcherServlet();
+//	    ds.setThrowExceptionIfNoHandlerFound(true);
+//	    return ds;
+//	}
 
 }

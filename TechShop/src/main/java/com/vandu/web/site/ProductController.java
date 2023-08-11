@@ -65,7 +65,7 @@ public class ProductController {
 			return "site/category";
 		}
 
-		return "404";
+		return "/site/404";
 	}
 
 	@GetMapping("{categoryCode}/{productCode}")
@@ -103,7 +103,7 @@ public class ProductController {
 			return "site/category";
 		}
 
-		return "404";
+		return "/site/404";
 
 	}
 

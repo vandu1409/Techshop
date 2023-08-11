@@ -60,4 +60,9 @@ public class Cart {
 		return this.getProductDetails().getQuantity() - this.getQuantity() < 0 ;
 	}
 
+	public String getProductName() {
+		return this.getProductDetails().getProductVersion().getProduct().getName() + " - "
+				+ this.getProductDetails().getProductVersion().getVersionName() + " - Màu : "
+				+ this.getProductDetails().getColor().getName();
+	}
 }

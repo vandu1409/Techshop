@@ -11,8 +11,17 @@ public class HomeAdminViewController {
 		return "admin/home";
 	}
 	
-	@GetMapping("admin/success")
+	@GetMapping("admin/product-success")
 	public String success() {
 		return "admin/success";
+	}
+	
+	@GetMapping("admin/category-success")
+	public String categorySuccess() {
+		return "admin/category-success";
+	}
+	@GetMapping("admin/menu-success")
+	public String menuSuccess() {
+		return "admin/menu-success";
 	}
 }

@@ -1,5 +1,6 @@
 package com.vandu.controller.site;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vandu.dto.response.OrderResponseDto;
 import com.vandu.enums.OrderStatus;
+import com.vandu.enums.PaymentMethod;
 import com.vandu.fillter.FilterOrder;
 import com.vandu.fillter.FilterOrderByUser;
 import com.vandu.helper.UserHelper;
@@ -77,13 +79,25 @@ public class OrderSiteApiController {
 	}
 	
 	@PutMapping("cancelOrder/{id}")
-	public ResponseEntity<?> delete(@PathVariable("id") Long id) {
+	public ResponseEntity<?> delete(@PathVariable("id") Long id) throws IOException {
 		Order order = orderService.findById(id).orElse(null);
+		
+		User user = UserHelper.getCurrentUser(request, userService);
 
+		Long totalPrice = Math.round(order.getTotalPrice());
+		
+//		orderService.payementByVnPay(totalPrice, order.getOrderId(), "refund", "14076985","14076985",user.getUserId() ,request);
+		
 		if (order != null && order.getStatus().equals(OrderStatus.PENDING)) {
 
-			orderService.cancelOrder(order);
+//			orderService.cancelOrder(order);
+			
+			if(order.getPayments().get(0).getPaymentMethod().equals(PaymentMethod.VNPAY)) {
+				orderService.refundVNPay(order, request);
+			}
 		}
+		
+		
 
 		return ResponseEntity.ok("success");
 	}

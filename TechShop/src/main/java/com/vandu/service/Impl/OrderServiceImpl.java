@@ -1,8 +1,15 @@
 package com.vandu.service.Impl;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,6 +33,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.JsonObject;
 import com.vandu.config.VnPayConfig;
 import com.vandu.dto.PaymentResDTO;
 import com.vandu.dto.response.AddressResponseDto;
@@ -54,7 +62,7 @@ public class OrderServiceImpl implements OrderService {
 
 	@Autowired
 	private OrderRepository orderRepository;
-	
+
 	@Autowired
 	private ProductDetailsRepository productDetailsRepository;
 
@@ -68,128 +76,211 @@ public class OrderServiceImpl implements OrderService {
 		return orderRepository.findByMonth(month);
 	}
 
-	
 	@Override
-	public PaymentResDTO payementByVnPay(Long amount, Long orderId,HttpServletRequest req) throws UnsupportedEncodingException {
-		 	String vnp_TxnRef = String.valueOf(orderId);
-	        String vnp_IpAddr = VnPayConfig.getIpAddress(req);
+	public PaymentResDTO payementByVnPay(Long amount, Long orderId, HttpServletRequest req)
+			throws UnsupportedEncodingException {
+		String vnp_TxnRef = VnPayConfig.getRandomNumber(8);
+		String vnp_IpAddr = VnPayConfig.getIpAddress(req);
 
-			 amount = amount*100;
-	        
-	        Map<String, String> vnp_Params = new HashMap();
-	        vnp_Params.put("vnp_Version", VnPayConfig.vnp_Version);
-	        vnp_Params.put("vnp_Command", VnPayConfig.vnp_Command);
-	        vnp_Params.put("vnp_TmnCode", VnPayConfig.vnp_TmnCode);
-	        vnp_Params.put("vnp_Amount", String.valueOf(amount));
-	        vnp_Params.put("vnp_CurrCode", "VND");
-	        vnp_Params.put("vnp_BankCode", "NCB");        
-	        vnp_Params.put("vnp_TxnRef", vnp_TxnRef);
-	        vnp_Params.put("vnp_OrderInfo", "Thanh toan don hang:" + vnp_TxnRef);
-	        vnp_Params.put("vnp_Locale", "vn");
-	        vnp_Params.put("vnp_IpAddr", vnp_IpAddr);
-	        vnp_Params.put("vnp_OrderType", "billpayment1231");
-	        vnp_Params.put("vnp_ReturnUrl", VnPayConfig.vnp_Returnurl +"?orderId="+orderId);
+		amount = amount * 100;
 
-	        Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+7"));
-	        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
-	        String vnp_CreateDate = formatter.format(cld.getTime());
-	        vnp_Params.put("vnp_CreateDate", vnp_CreateDate);
-	        
-	        cld.add(Calendar.MINUTE, 15);
-	        String vnp_ExpireDate = formatter.format(cld.getTime());
-	        vnp_Params.put("vnp_ExpireDate", vnp_ExpireDate);
-	        
-	        List fieldNames = new ArrayList<>(vnp_Params.keySet());
-	        Collections.sort(fieldNames);
-	        StringBuilder hashData = new StringBuilder();
-	        StringBuilder query = new StringBuilder();
-	        Iterator itr = fieldNames.iterator();
-	        while (itr.hasNext()) {
-	            String fieldName = (String) itr.next();
-	            String fieldValue = (String) vnp_Params.get(fieldName);
-	            if ((fieldValue != null) && (fieldValue.length() > 0)) {
-	                //Build hash data
-	                hashData.append(fieldName);
-	                hashData.append('=');
-	                hashData.append(URLEncoder.encode(fieldValue, StandardCharsets.US_ASCII.toString()));
-	                //Build query
-	                query.append(URLEncoder.encode(fieldName, StandardCharsets.US_ASCII.toString()));
-	                query.append('=');
-	                query.append(URLEncoder.encode(fieldValue, StandardCharsets.US_ASCII.toString()));
-	                if (itr.hasNext()) {
-	                    query.append('&');
-	                    hashData.append('&');
-	                }
-	            }
-	        }
-	        String queryUrl = query.toString();
-	        String vnp_SecureHash = VnPayConfig.hmacSHA512(VnPayConfig.vnp_HashSecret, hashData.toString());
-	        queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
-	        String paymentUrl = VnPayConfig.vnp_PayUrl + "?" + queryUrl;
+		Map<String, String> vnp_Params = new HashMap();
+		vnp_Params.put("vnp_Version", VnPayConfig.vnp_Version);
+		vnp_Params.put("vnp_Command", VnPayConfig.vnp_Command);
+		vnp_Params.put("vnp_TmnCode", VnPayConfig.vnp_TmnCode);
+		vnp_Params.put("vnp_Amount", String.valueOf(amount));
+		vnp_Params.put("vnp_CurrCode", "VND");
+		vnp_Params.put("vnp_BankCode", "NCB");
+		vnp_Params.put("vnp_TxnRef", vnp_TxnRef);
+		vnp_Params.put("vnp_OrderInfo", "Thanh toan don hang:" + vnp_TxnRef);
+		vnp_Params.put("vnp_Locale", "vn");
+		vnp_Params.put("vnp_IpAddr", vnp_IpAddr);
+		vnp_Params.put("vnp_OrderType", "billpayment1231");
+		vnp_Params.put("vnp_ReturnUrl", VnPayConfig.vnp_Returnurl);
 
-	        PaymentResDTO paymentResDTO = new PaymentResDTO();
-	        paymentResDTO.setStatus("OK");
-	        paymentResDTO.setMessage("Successfully");
-	        paymentResDTO.setUrl(paymentUrl);
-	        
-	        System.out.println(paymentResDTO.getUrl());
-	        
-	        return paymentResDTO;
+		Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+7"));
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+		String vnp_CreateDate = formatter.format(cld.getTime());
+		vnp_Params.put("vnp_CreateDate", vnp_CreateDate);
+
+		cld.add(Calendar.MINUTE, 15);
+		String vnp_ExpireDate = formatter.format(cld.getTime());
+		vnp_Params.put("vnp_ExpireDate", vnp_ExpireDate);
+
+		List fieldNames = new ArrayList<>(vnp_Params.keySet());
+		Collections.sort(fieldNames);
+		StringBuilder hashData = new StringBuilder();
+		StringBuilder query = new StringBuilder();
+		Iterator itr = fieldNames.iterator();
+		while (itr.hasNext()) {
+			String fieldName = (String) itr.next();
+			String fieldValue = (String) vnp_Params.get(fieldName);
+			if ((fieldValue != null) && (fieldValue.length() > 0)) {
+				// Build hash data
+				hashData.append(fieldName);
+				hashData.append('=');
+				hashData.append(URLEncoder.encode(fieldValue, StandardCharsets.US_ASCII.toString()));
+				// Build query
+				query.append(URLEncoder.encode(fieldName, StandardCharsets.US_ASCII.toString()));
+				query.append('=');
+				query.append(URLEncoder.encode(fieldValue, StandardCharsets.US_ASCII.toString()));
+				if (itr.hasNext()) {
+					query.append('&');
+					hashData.append('&');
+				}
+			}
+		}
+		String queryUrl = query.toString();
+		String vnp_SecureHash = VnPayConfig.hmacSHA512(VnPayConfig.vnp_HashSecret, hashData.toString());
+		queryUrl += "&vnp_SecureHash=" + vnp_SecureHash;
+		String paymentUrl = VnPayConfig.vnp_PayUrl + "?" + queryUrl;
+
+//		System.out.println(vnp_IpAddr + " Đây là địa chỉ");
+
+		PaymentResDTO paymentResDTO = new PaymentResDTO();
+		paymentResDTO.setStatus("OK");
+		paymentResDTO.setMessage("Successfully");
+		paymentResDTO.setUrl(paymentUrl);
+
+		System.out.println(paymentResDTO.getUrl());
+
+		return paymentResDTO;
 	}
-	
+
+	@Override
+	public void refundVNPay(Order order, HttpServletRequest req) throws IOException {
+		String vnp_IpAddr = VnPayConfig.getIpAddress(req);
+
+		String vnp_RequestId = VnPayConfig.getRandomNumber(8);
+		String vnp_Version = "2.1.0";
+		String vnp_Command = "refund";
+		String vnp_TmnCode = VnPayConfig.vnp_TmnCode;
+		String vnp_TransactionType = "02";
+		String vnp_TxnRef ="23939309";
+
+		 DecimalFormat decimalFormat = new DecimalFormat("0");
+		long vnp_Amount = Integer.parseInt(decimalFormat.format(order.getTotalPrice()*100));
+//		String vnp_Amount = String.valueOf(amount);
+		String vnp_OrderInfo = "Hoan tien GD OrderId:" + vnp_TxnRef;
+		String vnp_TransactionNo = order.getPayments().get(0).getTransactionCode();
+
+		Calendar cld = Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+7"));
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+
+		String vnp_CreateDate = formatter.format(cld.getTime());
+
+		String vnp_TransactionDate = vnp_CreateDate;
+		String vnp_CreateBy = order.getUser().getUsername().toString();
+
+		JsonObject vnp_Params = new JsonObject();
+		vnp_Params.addProperty("vnp_Version", vnp_Version);
+		vnp_Params.addProperty("vnp_RequestId", vnp_RequestId);
+		vnp_Params.addProperty("vnp_Command", vnp_Command);
+		vnp_Params.addProperty("vnp_TmnCode", vnp_TmnCode);
+//		vnp_Params.addProperty("vnp_CurrCode", "VND");
+		vnp_Params.addProperty("vnp_TransactionType", vnp_TransactionType);
+		vnp_Params.addProperty("vnp_TxnRef", vnp_TxnRef);
+		vnp_Params.addProperty("vnp_Amount", vnp_Amount);
+		vnp_Params.addProperty("vnp_OrderInfo", vnp_OrderInfo);
+		vnp_Params.addProperty("vnp_TransactionNo", vnp_TransactionNo);
+		vnp_Params.addProperty("vnp_TransactionDate", vnp_CreateDate);
+		vnp_Params.addProperty("vnp_CreateBy", vnp_CreateBy);
+		vnp_Params.addProperty("vnp_CreateDate", vnp_CreateDate);
+		vnp_Params.addProperty("vnp_IpAddr", vnp_IpAddr);
+
+		String hash_Data = vnp_RequestId + "|" + vnp_Version + "|" + vnp_Command + "|" + vnp_TmnCode + "|"
+				+ vnp_TransactionType + "|" + vnp_TxnRef + "|" + vnp_Amount + "|" + vnp_TransactionNo + "|"
+				+ vnp_TransactionDate + "|" + vnp_CreateBy + "|" + vnp_CreateDate + "|" + vnp_IpAddr + "|"
+				+ vnp_OrderInfo;
+
+		System.out.println(hash_Data);
+
+		// Tạo mã kiểm tra (checksum) bằng hàm hashWithSecureType (đã được cung cấp từ
+		// trước)
+		String vnp_SecureHash = VnPayConfig.hmacSHA512(VnPayConfig.vnp_HashSecret, hash_Data.toString());
+		
+
+		// Đặt mã kiểm tra vào Map
+		vnp_Params.addProperty("vnp_SecureHash", vnp_SecureHash);
+
+		URL url = new URL(VnPayConfig.vnp_apiUrl);
+		HttpURLConnection con = (HttpURLConnection) url.openConnection();
+		con.setRequestMethod("POST");
+		con.setRequestProperty("Content-Type", "application/json");
+		con.setDoOutput(true);
+		DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+		wr.writeBytes(vnp_Params.toString());
+		wr.flush();
+		wr.close();
+
+		int responseCode = con.getResponseCode();
+		System.out.println("nSending 'POST' request to URL : " + url);
+		System.out.println("Post Data : " + vnp_Params);
+		System.out.println("Response Code : " + responseCode);
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		String output;
+		StringBuffer response = new StringBuffer();
+		while ((output = in.readLine()) != null) {
+			response.append(output);
+		}
+		in.close();
+		System.out.println(response.toString());
+
+	}
+
 	@Override
 	public Page<Order> findByUser(Long uid, Pageable pageable) {
-	
+
 		return orderRepository.findByUser(uid, pageable);
 	}
-	
+
 	@Override
 	public Order cancelOrder(Order order) {
-	
-		order.getOrderItems().stream().forEach(orderItem->{
+
+		order.getOrderItems().stream().forEach(orderItem -> {
 			ProductDetails productDetails = orderItem.getProductDetails();
-			productDetails.setQuantity(productDetails.getQuantity()+orderItem.getQuantity());
-			
+			productDetails.setQuantity(productDetails.getQuantity() + orderItem.getQuantity());
+
 			productDetailsRepository.save(productDetails);
 		});
-		
+
 		order.setStatus(OrderStatus.CANELED);
 		return save(order);
 	}
-	
+
 	@Override
 	public Order restoreOrder(Order order) {
 
 		if (order != null && order.getStatus().equals(OrderStatus.CANELED)) {
-			order.getOrderItems().stream().forEach(orderItem->{
+			order.getOrderItems().stream().forEach(orderItem -> {
 				ProductDetails productDetails = orderItem.getProductDetails();
-				productDetails.setQuantity(productDetails.getQuantity()-orderItem.getQuantity());
-				
+				productDetails.setQuantity(productDetails.getQuantity() - orderItem.getQuantity());
+
 				productDetailsRepository.save(productDetails);
 			});
-			
+
 			order.setStatus(OrderStatus.PENDING);
 			return save(order);
 		}
-		
+
 		return null;
 	}
 
 	public boolean checkQuantity(List<Cart> list) {
-	
+
 		boolean check = false;
-		
+
 		for (Cart cart : list) {
 			Long quantity = cart.getProductDetails().getQuantity() - cart.getQuantity();
-			if(quantity<0) {
-				check= true;
+			if (quantity < 0) {
+				check = true;
 			}
 		}
-		
+
 		return check;
-		
+
 	}
-	
+
 	@Override
 	public OrderResponseDto convertToOrderResponseDto(Order item) {
 		OrderResponseDto orderResponseDto = new OrderResponseDto();
@@ -229,12 +320,13 @@ public class OrderServiceImpl implements OrderService {
 
 		return orderResponseDto;
 	}
-	
+
 	@Override
-	public Page<Order> findAllOrdersWithSpecificationAndPageable(Specification<Order> specification, Pageable pageable) {
-	    return orderRepository.findAll(specification, pageable);
+	public Page<Order> findAllOrdersWithSpecificationAndPageable(Specification<Order> specification,
+			Pageable pageable) {
+		return orderRepository.findAll(specification, pageable);
 	}
-	
+
 	@Override
 	public <S extends Order> S save(S entity) {
 		return orderRepository.save(entity);
@@ -373,7 +465,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public List<Order> findByStatus(int status) {
 		OrderStatus orderStatus = null;
-		
+
 		switch (status) {
 		case 0: {
 			orderStatus = null;
@@ -397,10 +489,10 @@ public class OrderServiceImpl implements OrderService {
 		}
 
 		}
-		if(orderStatus==null) {
+		if (orderStatus == null) {
 			return findAll();
 		}
-		
+
 		return orderRepository.findByStatus(orderStatus);
 	}
 
@@ -423,10 +515,9 @@ public class OrderServiceImpl implements OrderService {
 	public void deleteAll() {
 		orderRepository.deleteAll();
 	}
-	
-	public Page<Order> findAll(Specification<Order> specification,Pageable pageable){
+
+	public Page<Order> findAll(Specification<Order> specification, Pageable pageable) {
 		return orderRepository.findAll(specification, pageable);
 	}
-	
-	
+
 }

@@ -79,7 +79,7 @@ public interface PaymentsService {
 
 	<S extends Payments> S save(S entity);
 
-	Payments addToPayment(Order DBOrder, PaymentMethod paymentMethod, PaymentStatus paymentStatus);
+	Payments addToPayment(Order DBOrder, PaymentMethod paymentMethod, PaymentStatus paymentStatus,String vnp_TransactionNo);
 
 	Optional<Payments> findByOrder(Long orderId);
 

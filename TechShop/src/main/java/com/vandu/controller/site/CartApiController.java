@@ -97,6 +97,47 @@ public class CartApiController {
 
 	}
 
+	@PostMapping("buy-now")
+	public ResponseEntity<?> buyNow(@RequestBody CartDto cartDto) throws Exception {
+
+		try {
+			ProductDetails productDetails = productDetailsService.findById(cartDto.getProductDetailsId())
+					.orElseThrow(() -> new ProductNotFoundException());
+
+			if (productDetails != null) {
+
+				User user = UserHelper.getCurrentUser(request, userService);
+
+				if (user == null) {
+					throw new NotLoggedInException();
+				}
+
+				if (!productDetails.getProductVersion().getProduct().isAvailable()) {
+					throw new DiscontinuedProductException("Sản phẩm đã ngừng kinh doanh!");
+				}
+
+				cartService.setAllSelectedItemsToFalse();
+				
+				Cart cart = new Cart();
+				cart.setCreateDate(new Date());
+				cart.setQuantity(cartDto.getQuantity());
+
+				cart.setProductDetails(productDetails);
+				cart.setUser(user);
+				cart.setSelectedItems(true);
+				cartService.addToCart(cart);
+				return ResponseEntity.ok(cartDto);
+			}
+
+		} catch (NotLoggedInException e) {
+			throw e;
+		} catch (DiscontinuedProductException e) {
+			throw e;
+		}
+
+		return ResponseEntity.badRequest().build();
+
+	}
 	@GetMapping("getAllCart")
 //	@JsonView(Views.Public.class)
 	public ResponseEntity<?> getAllCart() throws NotLoggedInException {

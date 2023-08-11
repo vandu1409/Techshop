@@ -81,6 +81,13 @@ public class CartServiceImpl implements CartService {
 		return cartRepository.findByUserAndProductDetails(uid, pid);
 	}
 
+	@Override
+	public void setAllSelectedItemsToFalse() {
+		cartRepository.findAll().stream().forEach(item->{
+			item.setSelectedItems(false);
+			cartRepository.save(item);
+		});
+	}
 
 	@Override
 	public Cart addToCart(Cart cart) throws Exception{
@@ -94,6 +101,9 @@ public class CartServiceImpl implements CartService {
 				ProductDetails productDetails = currentCart.getProductDetails();
 				
 				currentCart.setQuantity(currentCart.getQuantity() + cart.getQuantity());
+				if(cart.getSelectedItems()) {
+					currentCart.setSelectedItems(cart.getSelectedItems());
+				}
 //				currentCart.setTotalPrice(cart.getProductDetails().getPrice() * currentCart.getQuantity());
 
 //				productDetails.setQuantity(productDetails.getQuantity() - cart.getQuantity());

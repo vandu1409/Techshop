@@ -33,7 +33,7 @@ public class PaymentsServiceImpl implements PaymentsService{
 
 	
 	@Override
-	public Payments addToPayment(Order DBOrder,PaymentMethod paymentMethod,PaymentStatus paymentStatus) {
+	public Payments addToPayment(Order DBOrder,PaymentMethod paymentMethod,PaymentStatus paymentStatus,String vnp_TransactionNo) {
 		Payments payments = new Payments();
 		payments.setOrder(DBOrder);
 		payments.setTotalPrice(DBOrder.getTotalPrice());
@@ -41,6 +41,10 @@ public class PaymentsServiceImpl implements PaymentsService{
 		payments.setCreateDate(currentDate);
 		payments.setPaymentMethod(paymentMethod);
 		payments.setPaymentStatus(paymentStatus);
+		
+		if(vnp_TransactionNo!=null) {
+			payments.setTransactionCode(vnp_TransactionNo);
+		}
 		
 		return save(payments);
 	}

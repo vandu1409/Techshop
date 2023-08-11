@@ -89,6 +89,8 @@ public interface CartService {
 
 	CartResponseDto convertCartResponseDto(Cart item);
 
+	void setAllSelectedItemsToFalse();
+
 
 
 }

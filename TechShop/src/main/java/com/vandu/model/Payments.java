@@ -32,6 +32,7 @@ public class Payments {
 	
 	private Double totalPrice;
 	
+	private String transactionCode;
 	
 	@Enumerated(EnumType.STRING)
 	private PaymentMethod paymentMethod;

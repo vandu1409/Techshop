@@ -360,7 +360,7 @@
 
                                  <div class="row">
                                     <table class="table table-centered mb-0 text-nowrap table-borderless">
-                                        <thead class="text-white" style="background: #db3030;border-radius: 0.5 rem;">
+                                        <thead class="bg-light">
                                             <th>Tên menu con</th>
                                             <th>Đường dẫn</th>
                                             <th></th>
@@ -379,7 +379,7 @@
 
                                     <div class="col-lg-12 mt-5">
                                         <a onclick="saveOrUpdate()" class="btn btn-success">
-                                            Thêm menu
+                                            Lưu menu
                                         </a>
                                       
                                     </div>
@@ -533,8 +533,10 @@
 
             axios.post('/admin/menu/saveOrUpdate', formData)
                 .then(response => {
-                    var message = '[[${menu.id}]]' ?'Cật nhật Menu thành công!':'Thêm menu thành công!'
-                    MyNotification.alertSucess("Thông báo", message)
+                    // var message = '[[${menu.id}]]' ?'Cật nhật Menu thành công!':'Thêm menu thành công!'
+                    // MyNotification.alertSucess("Thông báo", message)
+
+                    window.location.href ="/admin/menu-success";
                 })
                 .catch(error => {
                     console.log(error)

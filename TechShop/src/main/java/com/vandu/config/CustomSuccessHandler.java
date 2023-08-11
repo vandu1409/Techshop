@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import com.vandu.enums.AuthenticationType;
 import com.vandu.enums.Role;
 import com.vandu.model.User;
+import com.vandu.repository.UserRepository;
 import com.vandu.service.UserService;
 
 import jakarta.servlet.ServletException;
@@ -25,6 +26,8 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 
 	@Autowired
 	private UserService userService;
+	
+
 
 	@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
@@ -76,11 +79,15 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 
 			saveLoggedUserToSession(request, email, authType, name);
 		} else {
-			System.err.println(authentication.getName()+" Đây là tên đăng nhập");
-			User dbUser = userService
-					.findByUsernameAndAuthenticationType(authentication.getName(), AuthenticationType.LOCAL)
-					.orElse(null);
-			saveLoggedUserToSession(request, authentication.getName(), AuthenticationType.LOCAL, dbUser.getFullname());
+//			System.out.println(userService);;
+//			if(userService!=null) {
+				System.err.println(authentication.getName()+" Đây là tên đăng nhập");
+				User dbUser = new User();
+				dbUser = this.userService
+						.findByUsernameAndAuthenticationType(authentication.getName(), AuthenticationType.LOCAL)
+						.orElse(null);
+				saveLoggedUserToSession(request, authentication.getName(), AuthenticationType.LOCAL, dbUser.getFullname());
+//			}
 
 		}
 	}

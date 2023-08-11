@@ -3,7 +3,7 @@ package com.vandu.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
+
 import java.util.List;
 import java.util.Set;
 
@@ -43,15 +43,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User implements UserDetails{
-	
+public class User implements UserDetails {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
 
 	@Column(columnDefinition = "nvarchar(500)")
 	private String username;
-	
+
 	@Column(columnDefinition = "nvarchar(500)")
 	private String password;
 
@@ -62,10 +62,10 @@ public class User implements UserDetails{
 	private String fullname;
 
 	private String phone;
-	
+
 	@Enumerated(EnumType.STRING)
 	private AuthenticationType authenticationType;
-	
+
 	@Column(columnDefinition = "nvarchar(1000)")
 	private String avatar;
 
@@ -76,7 +76,7 @@ public class User implements UserDetails{
 	private boolean isActive;
 
 	private boolean isDeleted;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
@@ -91,22 +91,24 @@ public class User implements UserDetails{
 	@OneToMany(mappedBy = "user")
 	@JsonIgnore
 	private List<Token> tokens;
-	
+
 	@OneToMany(mappedBy = "user")
 	@JsonIgnore
 	private List<WishList> wishLists;
 
-
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Message> sentMessages;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-		authorities.add(new SimpleGrantedAuthority(this.getRole().toString()));
-		
-		return authorities;
-		
-	}
+		if(this.getRole()!=null) {
+			authorities.add(new SimpleGrantedAuthority(this.getRole().toString()));
+		}
 
+		return authorities;
+
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {
@@ -114,13 +116,11 @@ public class User implements UserDetails{
 		return true;
 	}
 
-
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
 		return this.isActive();
 	}
-
 
 	@Override
 	public boolean isCredentialsNonExpired() {
@@ -128,12 +128,10 @@ public class User implements UserDetails{
 		return true;
 	}
 
-
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
 	}
-
 
 }

@@ -47,46 +47,46 @@ public class HomeController {
 //	@Autowired
 //	OAuth2UserRequest oAuth2UserRequest;
 
-	@ModelAttribute("listProduct")
-	List<Product> getAll() {
-		return productService.findAll();
-	}
-	
-	@ModelAttribute("listRandom")
-	List<Product> getListRand(){
-		return productService.findRandomByCategoryCode(8,"dien-thoai");
-	}
-	
-	@ModelAttribute("listPhones")
-	List<Product> getListPhones(){
-		return productService.findRandomByCategoryCode(10,"dien-thoai");
-	}
-	
-	@ModelAttribute("listsuggest")
-	List<Product> getListSuggest(){
-		return productService.findRandomProducts(10);
-	}
-
-	@ModelAttribute("listBrand")
-	public List<Brand> getAllBrand() {
-		return brandService.findAll();
-	}
-	
-	@ModelAttribute("listCategory")
-	public List<Category> getAllCategory(){
-		return categoryService.findAll();
-	}
-	
-	@ModelAttribute("listLaptop")
-	List<Product> getListLaptop(){
-		return productService.findRandomByCategoryCode(10,"lap-top");
-	}
-	
-	@ModelAttribute("listSmartWatch")
-	List<Product> getListSmartWatch(){
-		return productService.findRandomByCategoryCode(10,"smart-watch");
-	}
-	
+//	@ModelAttribute("listProduct")
+//	List<Product> getAll() {
+//		return productService.findAll();
+//	}
+//	
+//	@ModelAttribute("listRandom")
+//	List<Product> getListRand(){
+//		return productService.findRandomByCategoryCode(8,"dien-thoai");
+//	}
+//	
+//	@ModelAttribute("listPhones")
+//	List<Product> getListPhones(){
+//		return productService.findRandomByCategoryCode(10,"dien-thoai");
+//	}
+//	
+//	@ModelAttribute("listsuggest")
+//	List<Product> getListSuggest(){
+//		return productService.findRandomProducts(10);
+//	}
+//
+//	@ModelAttribute("listBrand")
+//	public List<Brand> getAllBrand() {
+//		return brandService.findAll();
+//	}
+//	
+//	@ModelAttribute("listCategory")
+//	public List<Category> getAllCategory(){
+//		return categoryService.findAll();
+//	}
+//	
+//	@ModelAttribute("listLaptop")
+//	List<Product> getListLaptop(){
+//		return productService.findRandomByCategoryCode(10,"lap-top");
+//	}
+//	
+//	@ModelAttribute("listSmartWatch")
+//	List<Product> getListSmartWatch(){
+//		return productService.findRandomByCategoryCode(10,"smart-watch");
+//	}
+//	
 	@GetMapping()
 	public String home(HttpSession session) {
 		

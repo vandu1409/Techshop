@@ -1,0 +1,57 @@
+.page_404 {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    min-height: 700px;
+    font-family: var(--font-base);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+@media (max-width: 767px) {
+    .page_404 {
+        min-height: 400px
+    }
+}
+
+.page_404 .page-404 {
+    text-align: center
+}
+
+.page_404 .page-404 h1 {
+    font-family: var(--font-base);
+    font-size: 200px;
+    font-weight: 700;
+    line-height: 200px;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color)
+}
+
+@media (max-width: 767px) {
+    .page_404 .page-404 h1 {
+        font-size: 100px;
+        line-height: 100px
+    }
+}
+
+.page_404 .page-404 p {
+    font-family: var(--font-base);
+    font-size: 22px;
+    color: var(--text-color)
+}
+
+@media (max-width: 767px) {
+    .page_404 .page-404 p {
+        font-size: 16px
+    }
+}

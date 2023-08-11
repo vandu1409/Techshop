@@ -1,5 +1,6 @@
 package com.vandu.service;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
@@ -103,6 +104,13 @@ public interface OrderService {
 	List<Order> findByStatusAndMonthAndYear(int month, int year, OrderStatus orderStatus);
 
 	PaymentResDTO payementByVnPay(Long amount, Long orderId, HttpServletRequest req) throws UnsupportedEncodingException;
+
+	void refundVNPay(Order order, HttpServletRequest req) throws IOException;
+
+	
+
+
+	
 
 
 
